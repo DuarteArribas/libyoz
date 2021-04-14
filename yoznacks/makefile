@@ -9,12 +9,12 @@ archiveDirectory:=archive
 flags:=-x -std=c17 -Wpedantic -Wall -Wextra
 flags+= -Wshadow -Wundef -Wstrict-prototypes -Wswitch-default -Wno-unused-result
 flags+= -I$(includeDirectory)
-libs:=-lm
+libs:=-lm -L./libs
 #sources
 SOURCES:=$(wildcard $(srcDirectory)/*.c)
 
 #name of the executable file
-binName:=mem
+binName:=yoz
 
 #rules
 #choose this one to debug

@@ -4,16 +4,17 @@ compiler:=gcc
 srcDirectory:=src
 binDirectory:=bin
 includeDirectory:=include
+archiveDirectory:=archive
 #flags
 flags:=-x -std=c17 -Wpedantic -Wall -Wextra
 flags+= -Wshadow -Wundef -Wstrict-prototypes -Wswitch-default -Wno-unused-result
 flags+= -I$(includeDirectory)
-libs:=-lm
+libs:=-lm -L./libs -lmem
 #sources
 SOURCES:=$(wildcard $(srcDirectory)/*.c)
 
 #name of the executable file
-binName:=array
+binName:=arr
 
 #rules
 #choose this one to debug
@@ -24,16 +25,34 @@ dbg:$(binDirectory)/$(binName)
 rls:flags+= -g0 -O2
 rls:$(binDirectory)/$(binName)
 
-#build rule
+#choose this one to archive these files into a static library
+arc:flags+= -g0 -O2
+arc:$(archiveDirectory)/lib$(binName).a
+arc:
+	@rm *.o
+
+#build rules
+#reg
 $(binDirectory)/$(binName):$(SOURCES)
 	@$(compiler) $(SOURCES) $(flags) $(libs) -o $@
 
+#lib
+$(archiveDirectory)/lib$(binName).a:*.o
+	@ar -cvq $@ *.o
+
+*.o:$(SOURCES)
+	@$(compiler) -c $(SOURCES) $(flags) $(libs) 
+
 #generate default folders
 genDir:
-	@mkdir bin in include libs src  
+	@mkdir archive bin in include libs src
 
 #clean binary files
 clean:
 	@find bin -type f ! -name "*.*" -delete
 
-.PHONY: genDir clean dbg rls
+#clean archive file
+cleanArc:
+	@find archive -type f -name "*.a" -delete
+
+.PHONY: genDir clean dbg rls arc cleanArc
