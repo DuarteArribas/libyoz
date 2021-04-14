@@ -12,10 +12,12 @@
 * Link libraries: Link each library to with the project.
 
 The include files are in the include subdirectory of the _yoznacks_ directory and the libraries are in the archive subdirectory of the _yoznacks_ directory
+
 ---
 ## Documentation
 
 The documentation can be found in the docs folder inside each sublibrary.
+
 ---
 ## Updating
 
