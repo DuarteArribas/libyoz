@@ -1,0 +1,928 @@
+\hypertarget{queue_8c}{}\doxysection{src/queue.c File Reference}
+\label{queue_8c}\index{src/queue.c@{src/queue.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$inttypes.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}queue.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mem.\+h\char`\"{}}\newline
+Include dependency graph for queue.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+c\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$ \mbox{\hyperlink{queue_8c_af4ec973e6789674298daeecd46606cf4}{ccreatequeue}} (char value)
+\item 
+i8\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$ \mbox{\hyperlink{queue_8c_a39da3d0ded048b073b33902657356a2a}{i8createqueue}} (int8\+\_\+t value)
+\item 
+i16\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$ \mbox{\hyperlink{queue_8c_a437d3133db0d3a15d70a31dc5a315d7b}{i16createqueue}} (int16\+\_\+t value)
+\item 
+i32\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$ \mbox{\hyperlink{queue_8c_abf1df62dc0700bce13757135fb96d8bf}{i32createqueue}} (int32\+\_\+t value)
+\item 
+i64\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$ \mbox{\hyperlink{queue_8c_af3d0ffcd462cd96068bef6be339710af}{i64createqueue}} (int64\+\_\+t value)
+\item 
+ui8\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$ \mbox{\hyperlink{queue_8c_a0f151d6444c16ac6dbcbcd011d7fa5e8}{ui8createqueue}} (uint8\+\_\+t value)
+\item 
+ui16\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$ \mbox{\hyperlink{queue_8c_aecee450450ae4a8955a61f5e96781ff6}{ui16createqueue}} (uint16\+\_\+t value)
+\item 
+ui32\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$ \mbox{\hyperlink{queue_8c_a77198472208b572cefd882bb553395ae}{ui32createqueue}} (uint32\+\_\+t value)
+\item 
+ui64\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$ \mbox{\hyperlink{queue_8c_a738da41d812476dd6c8296c7a4229f1b}{ui64createqueue}} (uint64\+\_\+t value)
+\item 
+f\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$ \mbox{\hyperlink{queue_8c_a4744c511000b3988acea3e97dc88748b}{fcreatequeue}} (float value)
+\item 
+d\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$ \mbox{\hyperlink{queue_8c_ab685204eb0c0c37472f13bec32c3dbd8}{dcreatequeue}} (double value)
+\item 
+ld\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$ \mbox{\hyperlink{queue_8c_adc387509bec3e1d9f5f5094f9077d6d4}{ldcreatequeue}} (long double value)
+\item 
+void \mbox{\hyperlink{queue_8c_ab9684c57507232991dc13a5239d13370}{cenqueue}} (c\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front, char value)
+\item 
+void \mbox{\hyperlink{queue_8c_a40f7032604e94be8fdc5bfb1054574b3}{i8enqueue}} (i8\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front, int8\+\_\+t value)
+\item 
+void \mbox{\hyperlink{queue_8c_aa9ca1f1012a648d2953e8daf271237be}{i16enqueue}} (i16\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front, int16\+\_\+t value)
+\item 
+void \mbox{\hyperlink{queue_8c_ae49e35a3e41c55d994948a3322d17123}{i32enqueue}} (i32\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front, int32\+\_\+t value)
+\item 
+void \mbox{\hyperlink{queue_8c_a1b9b1b90d6c54f8d37026de2bafdc1fa}{i64enqueue}} (i64\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front, int64\+\_\+t value)
+\item 
+void \mbox{\hyperlink{queue_8c_affda17e95034074dd31fb2634415816b}{ui8enqueue}} (ui8\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front, uint8\+\_\+t value)
+\item 
+void \mbox{\hyperlink{queue_8c_ab5f02acc4059f62a8d8c4759a4f4a4fd}{ui16enqueue}} (ui16\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front, uint16\+\_\+t value)
+\item 
+void \mbox{\hyperlink{queue_8c_af62bf42d466935351b619919f0691a88}{ui32enqueue}} (ui32\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front, uint32\+\_\+t value)
+\item 
+void \mbox{\hyperlink{queue_8c_aaae9139bcc2692d4cd68ec6681ad093b}{ui64enqueue}} (ui64\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front, uint64\+\_\+t value)
+\item 
+void \mbox{\hyperlink{queue_8c_a5499e9d7ed34982b942570909cde9801}{fenqueue}} (f\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front, float value)
+\item 
+void \mbox{\hyperlink{queue_8c_a8205c92a0b0bfed1740b7cb7ff1fbc0e}{denqueue}} (d\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front, double value)
+\item 
+void \mbox{\hyperlink{queue_8c_a8ee84f73ecc2c18f2de88f8e3817769e}{ldenqueue}} (ld\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front, long double value)
+\item 
+char \mbox{\hyperlink{queue_8c_a365cb6fa1543adf6c17ac5bff855223e}{cdequeue}} (c\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+int8\+\_\+t \mbox{\hyperlink{queue_8c_ad4850965e4f9b7529d335b46772793aa}{i8dequeue}} (i8\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+int16\+\_\+t \mbox{\hyperlink{queue_8c_aa19757f3728836b131bdbb0d96175dc4}{i16dequeue}} (i16\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+int32\+\_\+t \mbox{\hyperlink{queue_8c_a2e968863ff293bc6d109588daac37577}{i32dequeue}} (i32\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+int64\+\_\+t \mbox{\hyperlink{queue_8c_adecdbca7edb414b4af910c54d3fefe07}{i64dequeue}} (i64\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{queue_8c_a89fa2e6758a13f2ad8bdadace4b4687f}{ui8dequeue}} (ui8\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{queue_8c_acc546598c0a0904ee439a5d78ed9d980}{ui16dequeue}} (ui16\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{queue_8c_a00a34e7b5562fd6cf658797755ea3905}{ui32dequeue}} (ui32\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+uint64\+\_\+t \mbox{\hyperlink{queue_8c_ab8b195aa77bafebdeb0ea9f5dd221a9b}{ui64dequeue}} (ui64\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+float \mbox{\hyperlink{queue_8c_ae0863d166783359c5c94e88cbb6e7f6d}{fdequeue}} (f\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+double \mbox{\hyperlink{queue_8c_a3bb420501f6bc1a16646af4e070fc870}{ddequeue}} (d\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+long double \mbox{\hyperlink{queue_8c_a8a6df1072d2862a2d51c0533ca0ba6fe}{lddequeue}} (ld\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+void \mbox{\hyperlink{queue_8c_a9d9351095aafa87cd4fa9eb77b5d8236}{cfreequeue}} (c\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+void \mbox{\hyperlink{queue_8c_a36bac72c61e655216734fa50f233d8fc}{i8freequeue}} (i8\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+void \mbox{\hyperlink{queue_8c_a17da2487710c51725aa31636ce410932}{i16freequeue}} (i16\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+void \mbox{\hyperlink{queue_8c_a026000d9bde344ec8296fd79c1674309}{i32freequeue}} (i32\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+void \mbox{\hyperlink{queue_8c_af737498d5521a8690961ab741d7cae4f}{i64freequeue}} (i64\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+void \mbox{\hyperlink{queue_8c_aa161a645c0c85dfaa614dd0e907e2885}{ui8freequeue}} (ui8\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+void \mbox{\hyperlink{queue_8c_a687d14d1e6882de8ea17378cddb1ae2f}{ui16freequeue}} (ui16\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+void \mbox{\hyperlink{queue_8c_a6b9f4bdd08627345d6e2ac274b034f18}{ui32freequeue}} (ui32\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+void \mbox{\hyperlink{queue_8c_af35112ea6f4ff4b8f4495a9ea0b9dfb5}{ui64freequeue}} (ui64\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+void \mbox{\hyperlink{queue_8c_ab1425ae1ebe1d7dd0afee8e6b8df1549}{ffreequeue}} (f\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+void \mbox{\hyperlink{queue_8c_ab494d5c6e37c2a293f7fa9eba8fa84e8}{dfreequeue}} (d\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+void \mbox{\hyperlink{queue_8c_a912e985081914a865ad94983ba668244}{ldfreequeue}} (ld\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+char \mbox{\hyperlink{queue_8c_a078363368bdbfd823c46ed1b8db8b046}{cpeekqueue}} (c\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+int8\+\_\+t \mbox{\hyperlink{queue_8c_acdfd4671023741e7222ddb40169f2142}{i8peekqueue}} (i8\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+int16\+\_\+t \mbox{\hyperlink{queue_8c_aad65b8292565a5b442d9d21bc04ced36}{i16peekqueue}} (i16\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+int32\+\_\+t \mbox{\hyperlink{queue_8c_a61e45b8a685941fd378ae1c0902f2016}{i32peekqueue}} (i32\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+int64\+\_\+t \mbox{\hyperlink{queue_8c_ac42fba1cd23d5b6605a69b3a3e69b139}{i64peekqueue}} (i64\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{queue_8c_a10402145b018b7a2fb2d7f549c9bc405}{ui8peekqueue}} (ui8\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{queue_8c_adb584c241ad1f53c8dd532ca4b8d62b9}{ui16peekqueue}} (ui16\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{queue_8c_a76b505e6ffd749e926501085491c20c6}{ui32peekqueue}} (ui32\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+uint64\+\_\+t \mbox{\hyperlink{queue_8c_a21bf6f8947e4839da29ff8f2449ec8db}{ui64peekqueue}} (ui64\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+float \mbox{\hyperlink{queue_8c_a5197f3113352863cef120480d5baeb07}{fpeekqueue}} (f\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+double \mbox{\hyperlink{queue_8c_a52400a382c152e139d1943c2e7263a0c}{dpeekqueue}} (d\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\item 
+long double \mbox{\hyperlink{queue_8c_a420b64bf56b5ea77ee408345afce09a8}{ldpeekqueue}} (ld\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$front)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{queue_8c_af4ec973e6789674298daeecd46606cf4}\label{queue_8c_af4ec973e6789674298daeecd46606cf4}} 
+\index{queue.c@{queue.c}!ccreatequeue@{ccreatequeue}}
+\index{ccreatequeue@{ccreatequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ccreatequeue()}{ccreatequeue()}}
+{\footnotesize\ttfamily c\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE$\ast$ ccreatequeue (\begin{DoxyParamCaption}\item[{char}]{value }\end{DoxyParamCaption})}
+
+Creates a queue with the specified element (char version) 
+\begin{DoxyParams}{Parameters}
+{\em value} & the value be the front of the list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the address of the front 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_a365cb6fa1543adf6c17ac5bff855223e}\label{queue_8c_a365cb6fa1543adf6c17ac5bff855223e}} 
+\index{queue.c@{queue.c}!cdequeue@{cdequeue}}
+\index{cdequeue@{cdequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{cdequeue()}{cdequeue()}}
+{\footnotesize\ttfamily char cdequeue (\begin{DoxyParamCaption}\item[{c\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Dequeues the front element from the queue (char version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the dequeued element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_ab9684c57507232991dc13a5239d13370}\label{queue_8c_ab9684c57507232991dc13a5239d13370}} 
+\index{queue.c@{queue.c}!cenqueue@{cenqueue}}
+\index{cenqueue@{cenqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{cenqueue()}{cenqueue()}}
+{\footnotesize\ttfamily void cenqueue (\begin{DoxyParamCaption}\item[{c\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front,  }\item[{char}]{value }\end{DoxyParamCaption})}
+
+Enqueues the specfied element to the back of the queue (char version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front of the queue \\
+\hline
+{\em value} & the new value to enqueue into the queue \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{queue_8c_a9d9351095aafa87cd4fa9eb77b5d8236}\label{queue_8c_a9d9351095aafa87cd4fa9eb77b5d8236}} 
+\index{queue.c@{queue.c}!cfreequeue@{cfreequeue}}
+\index{cfreequeue@{cfreequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{cfreequeue()}{cfreequeue()}}
+{\footnotesize\ttfamily void cfreequeue (\begin{DoxyParamCaption}\item[{c\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Dequeues and frees the whole queue (char version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{queue_8c_a078363368bdbfd823c46ed1b8db8b046}\label{queue_8c_a078363368bdbfd823c46ed1b8db8b046}} 
+\index{queue.c@{queue.c}!cpeekqueue@{cpeekqueue}}
+\index{cpeekqueue@{cpeekqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{cpeekqueue()}{cpeekqueue()}}
+{\footnotesize\ttfamily char cpeekqueue (\begin{DoxyParamCaption}\item[{c\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Gets the front element of the queue (char version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the front element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_ab685204eb0c0c37472f13bec32c3dbd8}\label{queue_8c_ab685204eb0c0c37472f13bec32c3dbd8}} 
+\index{queue.c@{queue.c}!dcreatequeue@{dcreatequeue}}
+\index{dcreatequeue@{dcreatequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{dcreatequeue()}{dcreatequeue()}}
+{\footnotesize\ttfamily d\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE$\ast$ dcreatequeue (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption})}
+
+Creates a queue with the specified element (double version) 
+\begin{DoxyParams}{Parameters}
+{\em value} & the value be the front of the list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the address of the front 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_a3bb420501f6bc1a16646af4e070fc870}\label{queue_8c_a3bb420501f6bc1a16646af4e070fc870}} 
+\index{queue.c@{queue.c}!ddequeue@{ddequeue}}
+\index{ddequeue@{ddequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ddequeue()}{ddequeue()}}
+{\footnotesize\ttfamily double ddequeue (\begin{DoxyParamCaption}\item[{d\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Dequeues the front element from the queue (double version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the dequeued element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_a8205c92a0b0bfed1740b7cb7ff1fbc0e}\label{queue_8c_a8205c92a0b0bfed1740b7cb7ff1fbc0e}} 
+\index{queue.c@{queue.c}!denqueue@{denqueue}}
+\index{denqueue@{denqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{denqueue()}{denqueue()}}
+{\footnotesize\ttfamily void denqueue (\begin{DoxyParamCaption}\item[{d\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front,  }\item[{double}]{value }\end{DoxyParamCaption})}
+
+Enqueues the specfied element to the back of the queue (double version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front of the queue \\
+\hline
+{\em value} & the new value to enqueue into the queue \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{queue_8c_ab494d5c6e37c2a293f7fa9eba8fa84e8}\label{queue_8c_ab494d5c6e37c2a293f7fa9eba8fa84e8}} 
+\index{queue.c@{queue.c}!dfreequeue@{dfreequeue}}
+\index{dfreequeue@{dfreequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{dfreequeue()}{dfreequeue()}}
+{\footnotesize\ttfamily void dfreequeue (\begin{DoxyParamCaption}\item[{d\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Dequeues and frees the whole queue (double version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{queue_8c_a52400a382c152e139d1943c2e7263a0c}\label{queue_8c_a52400a382c152e139d1943c2e7263a0c}} 
+\index{queue.c@{queue.c}!dpeekqueue@{dpeekqueue}}
+\index{dpeekqueue@{dpeekqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{dpeekqueue()}{dpeekqueue()}}
+{\footnotesize\ttfamily double dpeekqueue (\begin{DoxyParamCaption}\item[{d\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Gets the front element of the queue (double version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the front element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_a4744c511000b3988acea3e97dc88748b}\label{queue_8c_a4744c511000b3988acea3e97dc88748b}} 
+\index{queue.c@{queue.c}!fcreatequeue@{fcreatequeue}}
+\index{fcreatequeue@{fcreatequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{fcreatequeue()}{fcreatequeue()}}
+{\footnotesize\ttfamily f\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE$\ast$ fcreatequeue (\begin{DoxyParamCaption}\item[{float}]{value }\end{DoxyParamCaption})}
+
+Creates a queue with the specified element (float version) 
+\begin{DoxyParams}{Parameters}
+{\em value} & the value be the front of the list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the address of the front 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_ae0863d166783359c5c94e88cbb6e7f6d}\label{queue_8c_ae0863d166783359c5c94e88cbb6e7f6d}} 
+\index{queue.c@{queue.c}!fdequeue@{fdequeue}}
+\index{fdequeue@{fdequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{fdequeue()}{fdequeue()}}
+{\footnotesize\ttfamily float fdequeue (\begin{DoxyParamCaption}\item[{f\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Dequeues the front element from the queue (float version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the dequeued element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_a5499e9d7ed34982b942570909cde9801}\label{queue_8c_a5499e9d7ed34982b942570909cde9801}} 
+\index{queue.c@{queue.c}!fenqueue@{fenqueue}}
+\index{fenqueue@{fenqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{fenqueue()}{fenqueue()}}
+{\footnotesize\ttfamily void fenqueue (\begin{DoxyParamCaption}\item[{f\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front,  }\item[{float}]{value }\end{DoxyParamCaption})}
+
+Enqueues the specfied element to the back of the queue (float version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front of the queue \\
+\hline
+{\em value} & the new value to enqueue into the queue \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{queue_8c_ab1425ae1ebe1d7dd0afee8e6b8df1549}\label{queue_8c_ab1425ae1ebe1d7dd0afee8e6b8df1549}} 
+\index{queue.c@{queue.c}!ffreequeue@{ffreequeue}}
+\index{ffreequeue@{ffreequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ffreequeue()}{ffreequeue()}}
+{\footnotesize\ttfamily void ffreequeue (\begin{DoxyParamCaption}\item[{f\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Dequeues and frees the whole queue (float version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{queue_8c_a5197f3113352863cef120480d5baeb07}\label{queue_8c_a5197f3113352863cef120480d5baeb07}} 
+\index{queue.c@{queue.c}!fpeekqueue@{fpeekqueue}}
+\index{fpeekqueue@{fpeekqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{fpeekqueue()}{fpeekqueue()}}
+{\footnotesize\ttfamily float fpeekqueue (\begin{DoxyParamCaption}\item[{f\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Gets the front element of the queue (float version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the front element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_a437d3133db0d3a15d70a31dc5a315d7b}\label{queue_8c_a437d3133db0d3a15d70a31dc5a315d7b}} 
+\index{queue.c@{queue.c}!i16createqueue@{i16createqueue}}
+\index{i16createqueue@{i16createqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{i16createqueue()}{i16createqueue()}}
+{\footnotesize\ttfamily i16\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE$\ast$ i16createqueue (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Creates a queue with the specified element (int16\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em value} & the value be the front of the list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the address of the front 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_aa19757f3728836b131bdbb0d96175dc4}\label{queue_8c_aa19757f3728836b131bdbb0d96175dc4}} 
+\index{queue.c@{queue.c}!i16dequeue@{i16dequeue}}
+\index{i16dequeue@{i16dequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{i16dequeue()}{i16dequeue()}}
+{\footnotesize\ttfamily int16\+\_\+t i16dequeue (\begin{DoxyParamCaption}\item[{i16\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Dequeues the front element from the queue (int16\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the dequeued element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_aa9ca1f1012a648d2953e8daf271237be}\label{queue_8c_aa9ca1f1012a648d2953e8daf271237be}} 
+\index{queue.c@{queue.c}!i16enqueue@{i16enqueue}}
+\index{i16enqueue@{i16enqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{i16enqueue()}{i16enqueue()}}
+{\footnotesize\ttfamily void i16enqueue (\begin{DoxyParamCaption}\item[{i16\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front,  }\item[{int16\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Enqueues the specfied element to the back of the queue (int16\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front of the queue \\
+\hline
+{\em value} & the new value to enqueue into the queue \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{queue_8c_a17da2487710c51725aa31636ce410932}\label{queue_8c_a17da2487710c51725aa31636ce410932}} 
+\index{queue.c@{queue.c}!i16freequeue@{i16freequeue}}
+\index{i16freequeue@{i16freequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{i16freequeue()}{i16freequeue()}}
+{\footnotesize\ttfamily void i16freequeue (\begin{DoxyParamCaption}\item[{i16\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Dequeues and frees the whole queue (int16\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{queue_8c_aad65b8292565a5b442d9d21bc04ced36}\label{queue_8c_aad65b8292565a5b442d9d21bc04ced36}} 
+\index{queue.c@{queue.c}!i16peekqueue@{i16peekqueue}}
+\index{i16peekqueue@{i16peekqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{i16peekqueue()}{i16peekqueue()}}
+{\footnotesize\ttfamily int16\+\_\+t i16peekqueue (\begin{DoxyParamCaption}\item[{i16\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Gets the front element of the queue (int16\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the front element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_abf1df62dc0700bce13757135fb96d8bf}\label{queue_8c_abf1df62dc0700bce13757135fb96d8bf}} 
+\index{queue.c@{queue.c}!i32createqueue@{i32createqueue}}
+\index{i32createqueue@{i32createqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{i32createqueue()}{i32createqueue()}}
+{\footnotesize\ttfamily i32\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE$\ast$ i32createqueue (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Creates a queue with the specified element (int32\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em value} & the value be the front of the list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the address of the front 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_a2e968863ff293bc6d109588daac37577}\label{queue_8c_a2e968863ff293bc6d109588daac37577}} 
+\index{queue.c@{queue.c}!i32dequeue@{i32dequeue}}
+\index{i32dequeue@{i32dequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{i32dequeue()}{i32dequeue()}}
+{\footnotesize\ttfamily int32\+\_\+t i32dequeue (\begin{DoxyParamCaption}\item[{i32\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Dequeues the front element from the queue (int32\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the dequeued element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_ae49e35a3e41c55d994948a3322d17123}\label{queue_8c_ae49e35a3e41c55d994948a3322d17123}} 
+\index{queue.c@{queue.c}!i32enqueue@{i32enqueue}}
+\index{i32enqueue@{i32enqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{i32enqueue()}{i32enqueue()}}
+{\footnotesize\ttfamily void i32enqueue (\begin{DoxyParamCaption}\item[{i32\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front,  }\item[{int32\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Enqueues the specfied element to the back of the queue (int32\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front of the queue \\
+\hline
+{\em value} & the new value to enqueue into the queue \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{queue_8c_a026000d9bde344ec8296fd79c1674309}\label{queue_8c_a026000d9bde344ec8296fd79c1674309}} 
+\index{queue.c@{queue.c}!i32freequeue@{i32freequeue}}
+\index{i32freequeue@{i32freequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{i32freequeue()}{i32freequeue()}}
+{\footnotesize\ttfamily void i32freequeue (\begin{DoxyParamCaption}\item[{i32\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Dequeues and frees the whole queue (int32\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{queue_8c_a61e45b8a685941fd378ae1c0902f2016}\label{queue_8c_a61e45b8a685941fd378ae1c0902f2016}} 
+\index{queue.c@{queue.c}!i32peekqueue@{i32peekqueue}}
+\index{i32peekqueue@{i32peekqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{i32peekqueue()}{i32peekqueue()}}
+{\footnotesize\ttfamily int32\+\_\+t i32peekqueue (\begin{DoxyParamCaption}\item[{i32\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Gets the front element of the queue (int32\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the front element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_af3d0ffcd462cd96068bef6be339710af}\label{queue_8c_af3d0ffcd462cd96068bef6be339710af}} 
+\index{queue.c@{queue.c}!i64createqueue@{i64createqueue}}
+\index{i64createqueue@{i64createqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{i64createqueue()}{i64createqueue()}}
+{\footnotesize\ttfamily i64\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE$\ast$ i64createqueue (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Creates a queue with the specified element (int64\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em value} & the value be the front of the list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the address of the front 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_adecdbca7edb414b4af910c54d3fefe07}\label{queue_8c_adecdbca7edb414b4af910c54d3fefe07}} 
+\index{queue.c@{queue.c}!i64dequeue@{i64dequeue}}
+\index{i64dequeue@{i64dequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{i64dequeue()}{i64dequeue()}}
+{\footnotesize\ttfamily int64\+\_\+t i64dequeue (\begin{DoxyParamCaption}\item[{i64\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Dequeues the front element from the queue (int64\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the dequeued element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_a1b9b1b90d6c54f8d37026de2bafdc1fa}\label{queue_8c_a1b9b1b90d6c54f8d37026de2bafdc1fa}} 
+\index{queue.c@{queue.c}!i64enqueue@{i64enqueue}}
+\index{i64enqueue@{i64enqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{i64enqueue()}{i64enqueue()}}
+{\footnotesize\ttfamily void i64enqueue (\begin{DoxyParamCaption}\item[{i64\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front,  }\item[{int64\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Enqueues the specfied element to the back of the queue (int64\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front of the queue \\
+\hline
+{\em value} & the new value to enqueue into the queue \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{queue_8c_af737498d5521a8690961ab741d7cae4f}\label{queue_8c_af737498d5521a8690961ab741d7cae4f}} 
+\index{queue.c@{queue.c}!i64freequeue@{i64freequeue}}
+\index{i64freequeue@{i64freequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{i64freequeue()}{i64freequeue()}}
+{\footnotesize\ttfamily void i64freequeue (\begin{DoxyParamCaption}\item[{i64\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Dequeues and frees the whole queue (int64\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{queue_8c_ac42fba1cd23d5b6605a69b3a3e69b139}\label{queue_8c_ac42fba1cd23d5b6605a69b3a3e69b139}} 
+\index{queue.c@{queue.c}!i64peekqueue@{i64peekqueue}}
+\index{i64peekqueue@{i64peekqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{i64peekqueue()}{i64peekqueue()}}
+{\footnotesize\ttfamily int64\+\_\+t i64peekqueue (\begin{DoxyParamCaption}\item[{i64\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Gets the front element of the queue (int64\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the front element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_a39da3d0ded048b073b33902657356a2a}\label{queue_8c_a39da3d0ded048b073b33902657356a2a}} 
+\index{queue.c@{queue.c}!i8createqueue@{i8createqueue}}
+\index{i8createqueue@{i8createqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{i8createqueue()}{i8createqueue()}}
+{\footnotesize\ttfamily i8\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE$\ast$ i8createqueue (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Creates a queue with the specified element (int8\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em value} & the value be the front of the list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the address of the front 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_ad4850965e4f9b7529d335b46772793aa}\label{queue_8c_ad4850965e4f9b7529d335b46772793aa}} 
+\index{queue.c@{queue.c}!i8dequeue@{i8dequeue}}
+\index{i8dequeue@{i8dequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{i8dequeue()}{i8dequeue()}}
+{\footnotesize\ttfamily int8\+\_\+t i8dequeue (\begin{DoxyParamCaption}\item[{i8\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Dequeues the front element from the queue (int8\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the dequeued element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_a40f7032604e94be8fdc5bfb1054574b3}\label{queue_8c_a40f7032604e94be8fdc5bfb1054574b3}} 
+\index{queue.c@{queue.c}!i8enqueue@{i8enqueue}}
+\index{i8enqueue@{i8enqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{i8enqueue()}{i8enqueue()}}
+{\footnotesize\ttfamily void i8enqueue (\begin{DoxyParamCaption}\item[{i8\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front,  }\item[{int8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Enqueues the specfied element to the back of the queue (int8\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front of the queue \\
+\hline
+{\em value} & the new value to enqueue into the queue \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{queue_8c_a36bac72c61e655216734fa50f233d8fc}\label{queue_8c_a36bac72c61e655216734fa50f233d8fc}} 
+\index{queue.c@{queue.c}!i8freequeue@{i8freequeue}}
+\index{i8freequeue@{i8freequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{i8freequeue()}{i8freequeue()}}
+{\footnotesize\ttfamily void i8freequeue (\begin{DoxyParamCaption}\item[{i8\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Dequeues and frees the whole queue (int8\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{queue_8c_acdfd4671023741e7222ddb40169f2142}\label{queue_8c_acdfd4671023741e7222ddb40169f2142}} 
+\index{queue.c@{queue.c}!i8peekqueue@{i8peekqueue}}
+\index{i8peekqueue@{i8peekqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{i8peekqueue()}{i8peekqueue()}}
+{\footnotesize\ttfamily int8\+\_\+t i8peekqueue (\begin{DoxyParamCaption}\item[{i8\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Gets the front element of the queue (int8\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the front element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_adc387509bec3e1d9f5f5094f9077d6d4}\label{queue_8c_adc387509bec3e1d9f5f5094f9077d6d4}} 
+\index{queue.c@{queue.c}!ldcreatequeue@{ldcreatequeue}}
+\index{ldcreatequeue@{ldcreatequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ldcreatequeue()}{ldcreatequeue()}}
+{\footnotesize\ttfamily ld\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE$\ast$ ldcreatequeue (\begin{DoxyParamCaption}\item[{long double}]{value }\end{DoxyParamCaption})}
+
+Creates a queue with the specified element (long double version) 
+\begin{DoxyParams}{Parameters}
+{\em value} & the value be the front of the list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the address of the front 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_a8a6df1072d2862a2d51c0533ca0ba6fe}\label{queue_8c_a8a6df1072d2862a2d51c0533ca0ba6fe}} 
+\index{queue.c@{queue.c}!lddequeue@{lddequeue}}
+\index{lddequeue@{lddequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{lddequeue()}{lddequeue()}}
+{\footnotesize\ttfamily long double lddequeue (\begin{DoxyParamCaption}\item[{ld\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Dequeues the front element from the queue (long double version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the dequeued element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_a8ee84f73ecc2c18f2de88f8e3817769e}\label{queue_8c_a8ee84f73ecc2c18f2de88f8e3817769e}} 
+\index{queue.c@{queue.c}!ldenqueue@{ldenqueue}}
+\index{ldenqueue@{ldenqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ldenqueue()}{ldenqueue()}}
+{\footnotesize\ttfamily void ldenqueue (\begin{DoxyParamCaption}\item[{ld\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front,  }\item[{long double}]{value }\end{DoxyParamCaption})}
+
+Enqueues the specfied element to the back of the queue (long double version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front of the queue \\
+\hline
+{\em value} & the new value to enqueue into the queue \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{queue_8c_a912e985081914a865ad94983ba668244}\label{queue_8c_a912e985081914a865ad94983ba668244}} 
+\index{queue.c@{queue.c}!ldfreequeue@{ldfreequeue}}
+\index{ldfreequeue@{ldfreequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ldfreequeue()}{ldfreequeue()}}
+{\footnotesize\ttfamily void ldfreequeue (\begin{DoxyParamCaption}\item[{ld\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Dequeues and frees the whole queue (long double version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{queue_8c_a420b64bf56b5ea77ee408345afce09a8}\label{queue_8c_a420b64bf56b5ea77ee408345afce09a8}} 
+\index{queue.c@{queue.c}!ldpeekqueue@{ldpeekqueue}}
+\index{ldpeekqueue@{ldpeekqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ldpeekqueue()}{ldpeekqueue()}}
+{\footnotesize\ttfamily long double ldpeekqueue (\begin{DoxyParamCaption}\item[{ld\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Gets the front element of the queue (long double version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the front element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_aecee450450ae4a8955a61f5e96781ff6}\label{queue_8c_aecee450450ae4a8955a61f5e96781ff6}} 
+\index{queue.c@{queue.c}!ui16createqueue@{ui16createqueue}}
+\index{ui16createqueue@{ui16createqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ui16createqueue()}{ui16createqueue()}}
+{\footnotesize\ttfamily ui16\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE$\ast$ ui16createqueue (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Creates a queue with the specified element (uint16\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em value} & the value be the front of the list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the address of the front 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_acc546598c0a0904ee439a5d78ed9d980}\label{queue_8c_acc546598c0a0904ee439a5d78ed9d980}} 
+\index{queue.c@{queue.c}!ui16dequeue@{ui16dequeue}}
+\index{ui16dequeue@{ui16dequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ui16dequeue()}{ui16dequeue()}}
+{\footnotesize\ttfamily uint16\+\_\+t ui16dequeue (\begin{DoxyParamCaption}\item[{ui16\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Dequeues the front element from the queue (uint16\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the dequeued element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_ab5f02acc4059f62a8d8c4759a4f4a4fd}\label{queue_8c_ab5f02acc4059f62a8d8c4759a4f4a4fd}} 
+\index{queue.c@{queue.c}!ui16enqueue@{ui16enqueue}}
+\index{ui16enqueue@{ui16enqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ui16enqueue()}{ui16enqueue()}}
+{\footnotesize\ttfamily void ui16enqueue (\begin{DoxyParamCaption}\item[{ui16\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front,  }\item[{uint16\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Enqueues the specfied element to the back of the queue (uint16\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front of the queue \\
+\hline
+{\em value} & the new value to enqueue into the queue \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{queue_8c_a687d14d1e6882de8ea17378cddb1ae2f}\label{queue_8c_a687d14d1e6882de8ea17378cddb1ae2f}} 
+\index{queue.c@{queue.c}!ui16freequeue@{ui16freequeue}}
+\index{ui16freequeue@{ui16freequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ui16freequeue()}{ui16freequeue()}}
+{\footnotesize\ttfamily void ui16freequeue (\begin{DoxyParamCaption}\item[{ui16\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Dequeues and frees the whole queue (uint16\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{queue_8c_adb584c241ad1f53c8dd532ca4b8d62b9}\label{queue_8c_adb584c241ad1f53c8dd532ca4b8d62b9}} 
+\index{queue.c@{queue.c}!ui16peekqueue@{ui16peekqueue}}
+\index{ui16peekqueue@{ui16peekqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ui16peekqueue()}{ui16peekqueue()}}
+{\footnotesize\ttfamily uint16\+\_\+t ui16peekqueue (\begin{DoxyParamCaption}\item[{ui16\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Gets the front element of the queue (uint16\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the front element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_a77198472208b572cefd882bb553395ae}\label{queue_8c_a77198472208b572cefd882bb553395ae}} 
+\index{queue.c@{queue.c}!ui32createqueue@{ui32createqueue}}
+\index{ui32createqueue@{ui32createqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ui32createqueue()}{ui32createqueue()}}
+{\footnotesize\ttfamily ui32\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE$\ast$ ui32createqueue (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Creates a queue with the specified element (uint32\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em value} & the value be the front of the list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the address of the front 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_a00a34e7b5562fd6cf658797755ea3905}\label{queue_8c_a00a34e7b5562fd6cf658797755ea3905}} 
+\index{queue.c@{queue.c}!ui32dequeue@{ui32dequeue}}
+\index{ui32dequeue@{ui32dequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ui32dequeue()}{ui32dequeue()}}
+{\footnotesize\ttfamily uint32\+\_\+t ui32dequeue (\begin{DoxyParamCaption}\item[{ui32\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Dequeues the front element from the queue (uint32\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the dequeued element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_af62bf42d466935351b619919f0691a88}\label{queue_8c_af62bf42d466935351b619919f0691a88}} 
+\index{queue.c@{queue.c}!ui32enqueue@{ui32enqueue}}
+\index{ui32enqueue@{ui32enqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ui32enqueue()}{ui32enqueue()}}
+{\footnotesize\ttfamily void ui32enqueue (\begin{DoxyParamCaption}\item[{ui32\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front,  }\item[{uint32\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Enqueues the specfied element to the back of the queue (uint32\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front of the queue \\
+\hline
+{\em value} & the new value to enqueue into the queue \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{queue_8c_a6b9f4bdd08627345d6e2ac274b034f18}\label{queue_8c_a6b9f4bdd08627345d6e2ac274b034f18}} 
+\index{queue.c@{queue.c}!ui32freequeue@{ui32freequeue}}
+\index{ui32freequeue@{ui32freequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ui32freequeue()}{ui32freequeue()}}
+{\footnotesize\ttfamily void ui32freequeue (\begin{DoxyParamCaption}\item[{ui32\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Dequeues and frees the whole queue (uint32\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{queue_8c_a76b505e6ffd749e926501085491c20c6}\label{queue_8c_a76b505e6ffd749e926501085491c20c6}} 
+\index{queue.c@{queue.c}!ui32peekqueue@{ui32peekqueue}}
+\index{ui32peekqueue@{ui32peekqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ui32peekqueue()}{ui32peekqueue()}}
+{\footnotesize\ttfamily uint32\+\_\+t ui32peekqueue (\begin{DoxyParamCaption}\item[{ui32\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Gets the front element of the queue (uint32\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the front element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_a738da41d812476dd6c8296c7a4229f1b}\label{queue_8c_a738da41d812476dd6c8296c7a4229f1b}} 
+\index{queue.c@{queue.c}!ui64createqueue@{ui64createqueue}}
+\index{ui64createqueue@{ui64createqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ui64createqueue()}{ui64createqueue()}}
+{\footnotesize\ttfamily ui64\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE$\ast$ ui64createqueue (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Creates a queue with the specified element (uint64\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em value} & the value be the front of the list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the address of the front 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_ab8b195aa77bafebdeb0ea9f5dd221a9b}\label{queue_8c_ab8b195aa77bafebdeb0ea9f5dd221a9b}} 
+\index{queue.c@{queue.c}!ui64dequeue@{ui64dequeue}}
+\index{ui64dequeue@{ui64dequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ui64dequeue()}{ui64dequeue()}}
+{\footnotesize\ttfamily uint64\+\_\+t ui64dequeue (\begin{DoxyParamCaption}\item[{ui64\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Dequeues the front element from the queue (uint64\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the dequeued element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_aaae9139bcc2692d4cd68ec6681ad093b}\label{queue_8c_aaae9139bcc2692d4cd68ec6681ad093b}} 
+\index{queue.c@{queue.c}!ui64enqueue@{ui64enqueue}}
+\index{ui64enqueue@{ui64enqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ui64enqueue()}{ui64enqueue()}}
+{\footnotesize\ttfamily void ui64enqueue (\begin{DoxyParamCaption}\item[{ui64\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front,  }\item[{uint64\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Enqueues the specfied element to the back of the queue (uint64\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front of the queue \\
+\hline
+{\em value} & the new value to enqueue into the queue \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{queue_8c_af35112ea6f4ff4b8f4495a9ea0b9dfb5}\label{queue_8c_af35112ea6f4ff4b8f4495a9ea0b9dfb5}} 
+\index{queue.c@{queue.c}!ui64freequeue@{ui64freequeue}}
+\index{ui64freequeue@{ui64freequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ui64freequeue()}{ui64freequeue()}}
+{\footnotesize\ttfamily void ui64freequeue (\begin{DoxyParamCaption}\item[{ui64\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Dequeues and frees the whole queue (uint64\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{queue_8c_a21bf6f8947e4839da29ff8f2449ec8db}\label{queue_8c_a21bf6f8947e4839da29ff8f2449ec8db}} 
+\index{queue.c@{queue.c}!ui64peekqueue@{ui64peekqueue}}
+\index{ui64peekqueue@{ui64peekqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ui64peekqueue()}{ui64peekqueue()}}
+{\footnotesize\ttfamily uint64\+\_\+t ui64peekqueue (\begin{DoxyParamCaption}\item[{ui64\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Gets the front element of the queue (uint64\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the front element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_a0f151d6444c16ac6dbcbcd011d7fa5e8}\label{queue_8c_a0f151d6444c16ac6dbcbcd011d7fa5e8}} 
+\index{queue.c@{queue.c}!ui8createqueue@{ui8createqueue}}
+\index{ui8createqueue@{ui8createqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ui8createqueue()}{ui8createqueue()}}
+{\footnotesize\ttfamily ui8\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE$\ast$ ui8createqueue (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Creates a queue with the specified element (uint8\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em value} & the value be the front of the list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the address of the front 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_a89fa2e6758a13f2ad8bdadace4b4687f}\label{queue_8c_a89fa2e6758a13f2ad8bdadace4b4687f}} 
+\index{queue.c@{queue.c}!ui8dequeue@{ui8dequeue}}
+\index{ui8dequeue@{ui8dequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ui8dequeue()}{ui8dequeue()}}
+{\footnotesize\ttfamily uint8\+\_\+t ui8dequeue (\begin{DoxyParamCaption}\item[{ui8\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Dequeues the front element from the queue (uint8\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the dequeued element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{queue_8c_affda17e95034074dd31fb2634415816b}\label{queue_8c_affda17e95034074dd31fb2634415816b}} 
+\index{queue.c@{queue.c}!ui8enqueue@{ui8enqueue}}
+\index{ui8enqueue@{ui8enqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ui8enqueue()}{ui8enqueue()}}
+{\footnotesize\ttfamily void ui8enqueue (\begin{DoxyParamCaption}\item[{ui8\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front,  }\item[{uint8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Enqueues the specfied element to the back of the queue (uint8\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front of the queue \\
+\hline
+{\em value} & the new value to enqueue into the queue \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{queue_8c_aa161a645c0c85dfaa614dd0e907e2885}\label{queue_8c_aa161a645c0c85dfaa614dd0e907e2885}} 
+\index{queue.c@{queue.c}!ui8freequeue@{ui8freequeue}}
+\index{ui8freequeue@{ui8freequeue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ui8freequeue()}{ui8freequeue()}}
+{\footnotesize\ttfamily void ui8freequeue (\begin{DoxyParamCaption}\item[{ui8\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Dequeues and frees the whole queue (uint8\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{queue_8c_a10402145b018b7a2fb2d7f549c9bc405}\label{queue_8c_a10402145b018b7a2fb2d7f549c9bc405}} 
+\index{queue.c@{queue.c}!ui8peekqueue@{ui8peekqueue}}
+\index{ui8peekqueue@{ui8peekqueue}!queue.c@{queue.c}}
+\doxysubsubsection{\texorpdfstring{ui8peekqueue()}{ui8peekqueue()}}
+{\footnotesize\ttfamily uint8\+\_\+t ui8peekqueue (\begin{DoxyParamCaption}\item[{ui8\+N\+O\+D\+E\+\_\+\+Q\+U\+E\+UE $\ast$$\ast$}]{front }\end{DoxyParamCaption})}
+
+Gets the front element of the queue (uint8\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$$\ast$front} & the address of the address of the front \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the front element 
+\end{DoxyReturn}

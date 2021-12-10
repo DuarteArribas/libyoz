@@ -1,0 +1,1745 @@
+\hypertarget{array_8c}{}\doxysection{src/array.c File Reference}
+\label{array_8c}\index{src/array.c@{src/array.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$inttypes.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}array.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mem.\+h\char`\"{}}\newline
+Include dependency graph for array.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{array_8c_a4f739190b701400957245dd18e246e8e}{ccopy\+Array}} (size\+\_\+t src\+Size, char $\ast$src, size\+\_\+t dest\+Size, char $\ast$dest)
+\item 
+void \mbox{\hyperlink{array_8c_ad4acbb5b2f65ee549b39bc1688878d0c}{i8copy\+Array}} (size\+\_\+t src\+Size, int8\+\_\+t $\ast$src, size\+\_\+t dest\+Size, int8\+\_\+t $\ast$dest)
+\item 
+void \mbox{\hyperlink{array_8c_a3805762ae0f5b92b457083206ce33435}{i16copy\+Array}} (size\+\_\+t src\+Size, int16\+\_\+t $\ast$src, size\+\_\+t dest\+Size, int16\+\_\+t $\ast$dest)
+\item 
+void \mbox{\hyperlink{array_8c_adf24baccabd7825a0537fd768c24a3f3}{i32copy\+Array}} (size\+\_\+t src\+Size, int32\+\_\+t $\ast$src, size\+\_\+t dest\+Size, int32\+\_\+t $\ast$dest)
+\item 
+void \mbox{\hyperlink{array_8c_a8a181c96d58e125e97db1554bd2c431e}{i64copy\+Array}} (size\+\_\+t src\+Size, int64\+\_\+t $\ast$src, size\+\_\+t dest\+Size, int64\+\_\+t $\ast$dest)
+\item 
+void \mbox{\hyperlink{array_8c_a553b1c1dc31fd821ba09c52850a102d1}{ui8copy\+Array}} (size\+\_\+t src\+Size, uint8\+\_\+t $\ast$src, size\+\_\+t dest\+Size, uint8\+\_\+t $\ast$dest)
+\item 
+void \mbox{\hyperlink{array_8c_adb6708a738752ba0fac2c1492866d7c0}{ui16copy\+Array}} (size\+\_\+t src\+Size, uint16\+\_\+t $\ast$src, size\+\_\+t dest\+Size, uint16\+\_\+t $\ast$dest)
+\item 
+void \mbox{\hyperlink{array_8c_ae6c544263c78d1b4898f4bdad15132d8}{ui32copy\+Array}} (size\+\_\+t src\+Size, uint32\+\_\+t $\ast$src, size\+\_\+t dest\+Size, uint32\+\_\+t $\ast$dest)
+\item 
+void \mbox{\hyperlink{array_8c_a9e1087593c45032d72bc07f66378fc08}{ui64copy\+Array}} (size\+\_\+t src\+Size, uint64\+\_\+t $\ast$src, size\+\_\+t dest\+Size, uint64\+\_\+t $\ast$dest)
+\item 
+void \mbox{\hyperlink{array_8c_a47dc5d5cfdb5978fc2e24109f51192ea}{fcopy\+Array}} (size\+\_\+t src\+Size, float $\ast$src, size\+\_\+t dest\+Size, float $\ast$dest)
+\item 
+void \mbox{\hyperlink{array_8c_ac5503c3dd05eafa4c8b167a63ae2ce94}{dcopy\+Array}} (size\+\_\+t src\+Size, double $\ast$src, size\+\_\+t dest\+Size, double $\ast$dest)
+\item 
+void \mbox{\hyperlink{array_8c_ade370ec52114f2004a1f584b2c26b90e}{ldcopy\+Array}} (size\+\_\+t src\+Size, long double $\ast$src, size\+\_\+t dest\+Size, long double $\ast$dest)
+\item 
+void \mbox{\hyperlink{array_8c_a6f81bcb8358b8fbf57f11b580c0189c6}{cprint\+Array}} (size\+\_\+t size, char $\ast$array, size\+\_\+t type)
+\item 
+void \mbox{\hyperlink{array_8c_a6673c9dc909a4f40de74bd4af1286d4a}{i8print\+Array}} (size\+\_\+t size, int8\+\_\+t $\ast$array, size\+\_\+t type)
+\item 
+void \mbox{\hyperlink{array_8c_a8c63cbd243c26e078723068ff7a181c4}{i16print\+Array}} (size\+\_\+t size, int16\+\_\+t $\ast$array, size\+\_\+t type)
+\item 
+void \mbox{\hyperlink{array_8c_a23b66ea8640bb8d9bbd12e60c65b0d0a}{i32print\+Array}} (size\+\_\+t size, int32\+\_\+t $\ast$array, size\+\_\+t type)
+\item 
+void \mbox{\hyperlink{array_8c_a0a4d935ed18d87a86135d2b10edfa990}{i64print\+Array}} (size\+\_\+t size, int64\+\_\+t $\ast$array, size\+\_\+t type)
+\item 
+void \mbox{\hyperlink{array_8c_af2854ab7b7b9798633fac43f704e9755}{ui8print\+Array}} (size\+\_\+t size, uint8\+\_\+t $\ast$array, size\+\_\+t type)
+\item 
+void \mbox{\hyperlink{array_8c_aba6bf8d875b7ec466bb7866e3851dbff}{ui16print\+Array}} (size\+\_\+t size, uint16\+\_\+t $\ast$array, size\+\_\+t type)
+\item 
+void \mbox{\hyperlink{array_8c_af1169186d4e783b4cbe20e579a2ac37a}{ui32print\+Array}} (size\+\_\+t size, uint32\+\_\+t $\ast$array, size\+\_\+t type)
+\item 
+void \mbox{\hyperlink{array_8c_a12e72a9cec2cda0630635bcc24fc7ec9}{ui64print\+Array}} (size\+\_\+t size, uint64\+\_\+t $\ast$array, size\+\_\+t type)
+\item 
+void \mbox{\hyperlink{array_8c_aa3e1c2d030973c91ba876a714d11a081}{fprint\+Array}} (size\+\_\+t size, float $\ast$array, size\+\_\+t type)
+\item 
+void \mbox{\hyperlink{array_8c_a1ca3014ac468382f90fa452223c3fdfe}{dprint\+Array}} (size\+\_\+t size, double $\ast$array, size\+\_\+t type)
+\item 
+void \mbox{\hyperlink{array_8c_a50c049363b9c0a4eb0b7ea6453c853da}{ldprint\+Array}} (size\+\_\+t size, long double $\ast$array, size\+\_\+t type)
+\item 
+void \mbox{\hyperlink{array_8c_ada6f36cd397b0f9f05ee7fd4a1dbe288}{csappend}} (size\+\_\+t $\ast$size, char $\ast$$\ast$array, char value)
+\item 
+void \mbox{\hyperlink{array_8c_a632ed95a2e1f14c3349649b7cf1a51a6}{i8sappend}} (size\+\_\+t $\ast$size, int8\+\_\+t $\ast$$\ast$array, int8\+\_\+t value)
+\item 
+void \mbox{\hyperlink{array_8c_ae34ad48dcda33f46c0eea2680ee3953c}{i16sappend}} (size\+\_\+t $\ast$size, int16\+\_\+t $\ast$$\ast$array, int16\+\_\+t value)
+\item 
+void \mbox{\hyperlink{array_8c_aec694009ddaf98a10420d54d91881f38}{i32sappend}} (size\+\_\+t $\ast$size, int32\+\_\+t $\ast$$\ast$array, int32\+\_\+t value)
+\item 
+void \mbox{\hyperlink{array_8c_a70598572fb878252d5f7809be16d0d0d}{i64sappend}} (size\+\_\+t $\ast$size, int64\+\_\+t $\ast$$\ast$array, int64\+\_\+t value)
+\item 
+void \mbox{\hyperlink{array_8c_a9e6a023e744c5c03b565f3fe9d2c9981}{ui8sappend}} (size\+\_\+t $\ast$size, uint8\+\_\+t $\ast$$\ast$array, uint8\+\_\+t value)
+\item 
+void \mbox{\hyperlink{array_8c_a901a9e05605fc9f4af25b2f53b5643f1}{ui16sappend}} (size\+\_\+t $\ast$size, uint16\+\_\+t $\ast$$\ast$array, uint16\+\_\+t value)
+\item 
+void \mbox{\hyperlink{array_8c_a4438f08e119a59803296467f15814aea}{ui32sappend}} (size\+\_\+t $\ast$size, uint32\+\_\+t $\ast$$\ast$array, uint32\+\_\+t value)
+\item 
+void \mbox{\hyperlink{array_8c_a6d98d947e48bd09d04078ca390a34813}{ui64sappend}} (size\+\_\+t $\ast$size, uint64\+\_\+t $\ast$$\ast$array, uint64\+\_\+t value)
+\item 
+void \mbox{\hyperlink{array_8c_a0c41547db40ba1f775aebaaec0ef26a2}{fsappend}} (size\+\_\+t $\ast$size, float $\ast$$\ast$array, float value)
+\item 
+void \mbox{\hyperlink{array_8c_a43344cf94563ddabd06f6412003719b5}{dsappend}} (size\+\_\+t $\ast$size, double $\ast$$\ast$array, double value)
+\item 
+void \mbox{\hyperlink{array_8c_a4a02b8a866db9657610356bae304749e}{ldsappend}} (size\+\_\+t $\ast$size, long double $\ast$$\ast$array, long double value)
+\item 
+void \mbox{\hyperlink{array_8c_a3a50209aec4983c2c6dba5c4165b9ed1}{cappend}} (size\+\_\+t $\ast$size, char $\ast$$\ast$array, char value, size\+\_\+t index)
+\item 
+void \mbox{\hyperlink{array_8c_a9380bc1bbd4ca20bca34a4f68f7fac5d}{i8append}} (size\+\_\+t $\ast$size, int8\+\_\+t $\ast$$\ast$array, int8\+\_\+t value, size\+\_\+t index)
+\item 
+void \mbox{\hyperlink{array_8c_ad4c52b55cf1610873b7858223709ba28}{i16append}} (size\+\_\+t $\ast$size, int16\+\_\+t $\ast$$\ast$array, int16\+\_\+t value, size\+\_\+t index)
+\item 
+void \mbox{\hyperlink{array_8c_a2a6e5c37eec0e06226515851c64f2339}{i32append}} (size\+\_\+t $\ast$size, int32\+\_\+t $\ast$$\ast$array, int32\+\_\+t value, size\+\_\+t index)
+\item 
+void \mbox{\hyperlink{array_8c_a5910ac257d31da8aac2cd1b1fa86379f}{i64append}} (size\+\_\+t $\ast$size, int64\+\_\+t $\ast$$\ast$array, int64\+\_\+t value, size\+\_\+t index)
+\item 
+void \mbox{\hyperlink{array_8c_ac347bf789828445a1009549abe62c34a}{ui8append}} (size\+\_\+t $\ast$size, uint8\+\_\+t $\ast$$\ast$array, uint8\+\_\+t value, size\+\_\+t index)
+\item 
+void \mbox{\hyperlink{array_8c_a509f19b4336ee863b88ace6244e2b09f}{ui16append}} (size\+\_\+t $\ast$size, uint16\+\_\+t $\ast$$\ast$array, uint16\+\_\+t value, size\+\_\+t index)
+\item 
+void \mbox{\hyperlink{array_8c_a2bdbc31f642d2a5bafff0403688ba9a1}{ui32append}} (size\+\_\+t $\ast$size, uint32\+\_\+t $\ast$$\ast$array, uint32\+\_\+t value, size\+\_\+t index)
+\item 
+void \mbox{\hyperlink{array_8c_a4387e5da280d0bc563d037933d5f0f64}{ui64append}} (size\+\_\+t $\ast$size, uint64\+\_\+t $\ast$$\ast$array, uint64\+\_\+t value, size\+\_\+t index)
+\item 
+void \mbox{\hyperlink{array_8c_a41d8d480670295b3c438cac22a1ddb8b}{fappend}} (size\+\_\+t $\ast$size, float $\ast$$\ast$array, float value, size\+\_\+t index)
+\item 
+void \mbox{\hyperlink{array_8c_a33bf1ca4b9590ea6e5ddd99d9bb04c41}{dappend}} (size\+\_\+t $\ast$size, double $\ast$$\ast$array, double value, size\+\_\+t index)
+\item 
+void \mbox{\hyperlink{array_8c_a8cfe931e644c2fcc640b5417d9a3e634}{ldappend}} (size\+\_\+t $\ast$size, long double $\ast$$\ast$array, long double value, size\+\_\+t index)
+\item 
+void \mbox{\hyperlink{array_8c_affab8160ed4e387518d24825f8f43d8c}{ceappend}} (size\+\_\+t $\ast$size, char $\ast$$\ast$array, char value)
+\item 
+void \mbox{\hyperlink{array_8c_a3a820f71ab21379d46b5ac003bb51ebc}{i8eappend}} (size\+\_\+t $\ast$size, int8\+\_\+t $\ast$$\ast$array, int8\+\_\+t value)
+\item 
+void \mbox{\hyperlink{array_8c_a0dc5d9a31b5364ee073275f9cc925c48}{i16eappend}} (size\+\_\+t $\ast$size, int16\+\_\+t $\ast$$\ast$array, int16\+\_\+t value)
+\item 
+void \mbox{\hyperlink{array_8c_a05678ee0a476a9249df743cbd3ddff6d}{i32eappend}} (size\+\_\+t $\ast$size, int32\+\_\+t $\ast$$\ast$array, int32\+\_\+t value)
+\item 
+void \mbox{\hyperlink{array_8c_a6a71d0cddc54f7f3d2caa1f261e09b8b}{i64eappend}} (size\+\_\+t $\ast$size, int64\+\_\+t $\ast$$\ast$array, int64\+\_\+t value)
+\item 
+void \mbox{\hyperlink{array_8c_a0c857ecdded2efba1eef2f2cc1f6495b}{ui8eappend}} (size\+\_\+t $\ast$size, uint8\+\_\+t $\ast$$\ast$array, uint8\+\_\+t value)
+\item 
+void \mbox{\hyperlink{array_8c_ab87b5f6ac78dfbe6c9adfb3a55687538}{ui16eappend}} (size\+\_\+t $\ast$size, uint16\+\_\+t $\ast$$\ast$array, uint16\+\_\+t value)
+\item 
+void \mbox{\hyperlink{array_8c_a2351c151d658cfee5e0bd96f44a6cd07}{ui32eappend}} (size\+\_\+t $\ast$size, uint32\+\_\+t $\ast$$\ast$array, uint32\+\_\+t value)
+\item 
+void \mbox{\hyperlink{array_8c_a41acd69df079d581407653ebddb1e693}{ui64eappend}} (size\+\_\+t $\ast$size, uint64\+\_\+t $\ast$$\ast$array, uint64\+\_\+t value)
+\item 
+void \mbox{\hyperlink{array_8c_a0d0b6a29f64140bef9c35d640df73b5d}{feappend}} (size\+\_\+t $\ast$size, float $\ast$$\ast$array, float value)
+\item 
+void \mbox{\hyperlink{array_8c_abe1737dd70f8d4945a27c80cd46f83e6}{deappend}} (size\+\_\+t $\ast$size, double $\ast$$\ast$array, double value)
+\item 
+void \mbox{\hyperlink{array_8c_af5efc08e5ab10953bb46cd6ee7131b23}{ldeappend}} (size\+\_\+t $\ast$size, long double $\ast$$\ast$array, long double value)
+\item 
+char \mbox{\hyperlink{array_8c_aab8f876e7e9d21d2d7070ec320f171eb}{cremove}} (size\+\_\+t $\ast$size, char $\ast$$\ast$array, size\+\_\+t index)
+\item 
+int8\+\_\+t \mbox{\hyperlink{array_8c_a6e13325054664e27e4127df10d34cb08}{i8remove}} (size\+\_\+t $\ast$size, int8\+\_\+t $\ast$$\ast$array, size\+\_\+t index)
+\item 
+int16\+\_\+t \mbox{\hyperlink{array_8c_a9c108e2c1cd012f370e1f7655ee932f3}{i16remove}} (size\+\_\+t $\ast$size, int16\+\_\+t $\ast$$\ast$array, size\+\_\+t index)
+\item 
+int32\+\_\+t \mbox{\hyperlink{array_8c_a1669b1f450027bcd204443472db7098a}{i32remove}} (size\+\_\+t $\ast$size, int32\+\_\+t $\ast$$\ast$array, size\+\_\+t index)
+\item 
+int64\+\_\+t \mbox{\hyperlink{array_8c_a4120d7a3de00e47c5e392e7180716758}{i64remove}} (size\+\_\+t $\ast$size, int64\+\_\+t $\ast$$\ast$array, size\+\_\+t index)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{array_8c_ad27d063be958cfdd5f0e312b94593ac3}{ui8remove}} (size\+\_\+t $\ast$size, uint8\+\_\+t $\ast$$\ast$array, size\+\_\+t index)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{array_8c_ad2ab6e0725a91ffca57cd83c1ab3ca16}{ui16remove}} (size\+\_\+t $\ast$size, uint16\+\_\+t $\ast$$\ast$array, size\+\_\+t index)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{array_8c_a5bfee8a24101f9f4f3b08f94cadbfaa7}{ui32remove}} (size\+\_\+t $\ast$size, uint32\+\_\+t $\ast$$\ast$array, size\+\_\+t index)
+\item 
+uint64\+\_\+t \mbox{\hyperlink{array_8c_acf412ed72b5f70dc81fd29037d382920}{ui64remove}} (size\+\_\+t $\ast$size, uint64\+\_\+t $\ast$$\ast$array, size\+\_\+t index)
+\item 
+float \mbox{\hyperlink{array_8c_af2f0d626b11aa3d8e26086be1b6fcb23}{fremove}} (size\+\_\+t $\ast$size, float $\ast$$\ast$array, size\+\_\+t index)
+\item 
+double \mbox{\hyperlink{array_8c_ad4996d39bbbba504ccb0622b8704a798}{dremove}} (size\+\_\+t $\ast$size, double $\ast$$\ast$array, size\+\_\+t index)
+\item 
+long double \mbox{\hyperlink{array_8c_a222ad738092d7f3b179338b125bcb81b}{ldremove}} (size\+\_\+t $\ast$size, long double $\ast$$\ast$array, size\+\_\+t index)
+\item 
+void \mbox{\hyperlink{array_8c_a5f961e2df8680b31dfd5038a9aae87b7}{cisort}} (size\+\_\+t size, char $\ast$array)
+\item 
+void \mbox{\hyperlink{array_8c_aad88418673642c8ca178877175c95539}{i8isort}} (size\+\_\+t size, int8\+\_\+t $\ast$array)
+\item 
+void \mbox{\hyperlink{array_8c_a1b63ce7260d59192891ad23c0508a8a0}{i16isort}} (size\+\_\+t size, int16\+\_\+t $\ast$array)
+\item 
+void \mbox{\hyperlink{array_8c_ae6c1d8cf68df1f6bb0a585404d080793}{i32isort}} (size\+\_\+t size, int32\+\_\+t $\ast$array)
+\item 
+void \mbox{\hyperlink{array_8c_a4bdd5f4d3e08a9cb9563c8a90f8729ac}{i64isort}} (size\+\_\+t size, int64\+\_\+t $\ast$array)
+\item 
+void \mbox{\hyperlink{array_8c_a9f4024a8a39c28fd8f7e7008855e5c02}{ui8isort}} (size\+\_\+t size, uint8\+\_\+t $\ast$array)
+\item 
+void \mbox{\hyperlink{array_8c_a062be200d22719aed1b6f14c0ad91947}{ui16isort}} (size\+\_\+t size, uint16\+\_\+t $\ast$array)
+\item 
+void \mbox{\hyperlink{array_8c_a5ba72d37a8313d037c3891058abb1c82}{ui32isort}} (size\+\_\+t size, uint32\+\_\+t $\ast$array)
+\item 
+void \mbox{\hyperlink{array_8c_a326cb6bd758f7e27cf69ef6a5d154802}{ui64isort}} (size\+\_\+t size, uint64\+\_\+t $\ast$array)
+\item 
+void \mbox{\hyperlink{array_8c_abce843ee6490ffcf71e5926ef2f7e8f8}{fisort}} (size\+\_\+t size, float $\ast$array)
+\item 
+void \mbox{\hyperlink{array_8c_a66dbbcbe6e39791ce6f0dccb319661e3}{disort}} (size\+\_\+t size, double $\ast$array)
+\item 
+void \mbox{\hyperlink{array_8c_a82ddd2a5494ca0861db6b7eb6f9d3f2b}{ldisort}} (size\+\_\+t size, long double $\ast$array)
+\item 
+int64\+\_\+t \mbox{\hyperlink{array_8c_a8655f41d24a7fe24d2e8986b6e4136e6}{clsearch}} (size\+\_\+t size, char $\ast$array, char value)
+\item 
+int64\+\_\+t \mbox{\hyperlink{array_8c_ab75bcbd5dfe99e018363f2f57787cafa}{i8lsearch}} (size\+\_\+t size, int8\+\_\+t $\ast$array, int8\+\_\+t value)
+\item 
+int64\+\_\+t \mbox{\hyperlink{array_8c_a7ddea2cffe7a3f75f58ee92d5dd2e1b4}{i16lsearch}} (size\+\_\+t size, int16\+\_\+t $\ast$array, int16\+\_\+t value)
+\item 
+int64\+\_\+t \mbox{\hyperlink{array_8c_ab85422ab1b2a1bba40fd7f9bf1d95825}{i32lsearch}} (size\+\_\+t size, int32\+\_\+t $\ast$array, int32\+\_\+t value)
+\item 
+int64\+\_\+t \mbox{\hyperlink{array_8c_aab0d90468d16664ad5a9adadf0701280}{i64lsearch}} (size\+\_\+t size, int64\+\_\+t $\ast$array, int64\+\_\+t value)
+\item 
+int64\+\_\+t \mbox{\hyperlink{array_8c_a415804d90fd25c424d717ca9f9141911}{ui8lsearch}} (size\+\_\+t size, uint8\+\_\+t $\ast$array, uint8\+\_\+t value)
+\item 
+int64\+\_\+t \mbox{\hyperlink{array_8c_a3fc714ca54fdcf6902d608df8912593e}{ui16lsearch}} (size\+\_\+t size, uint16\+\_\+t $\ast$array, uint16\+\_\+t value)
+\item 
+int64\+\_\+t \mbox{\hyperlink{array_8c_a34b215a15845663f95a078d6d21b5c41}{ui32lsearch}} (size\+\_\+t size, uint32\+\_\+t $\ast$array, uint32\+\_\+t value)
+\item 
+int64\+\_\+t \mbox{\hyperlink{array_8c_a8618dc8565d9201c9a0eae64c33a815e}{ui64lsearch}} (size\+\_\+t size, uint64\+\_\+t $\ast$array, uint64\+\_\+t value)
+\item 
+int64\+\_\+t \mbox{\hyperlink{array_8c_a9b58e8b2aa8706502bde822d0d766ef0}{flsearch}} (size\+\_\+t size, float $\ast$array, float value)
+\item 
+int64\+\_\+t \mbox{\hyperlink{array_8c_abeb83b667f4e9ad08cbce9fdfdf27ef9}{dlsearch}} (size\+\_\+t size, double $\ast$array, double value)
+\item 
+int64\+\_\+t \mbox{\hyperlink{array_8c_a7fa8f67dba0b3231654e59eacf1c3966}{ldlsearch}} (size\+\_\+t size, long double $\ast$array, long double value)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{array_8c_a3a50209aec4983c2c6dba5c4165b9ed1}\label{array_8c_a3a50209aec4983c2c6dba5c4165b9ed1}} 
+\index{array.c@{array.c}!cappend@{cappend}}
+\index{cappend@{cappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{cappend()}{cappend()}}
+{\footnotesize\ttfamily void cappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{char $\ast$$\ast$}]{array,  }\item[{char}]{value,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+Appends a value at the specified index of the array, increasing its size by 1 (char version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+{\em index} & the index to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a4f739190b701400957245dd18e246e8e}\label{array_8c_a4f739190b701400957245dd18e246e8e}} 
+\index{array.c@{array.c}!ccopyArray@{ccopyArray}}
+\index{ccopyArray@{ccopyArray}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ccopyArray()}{ccopyArray()}}
+{\footnotesize\ttfamily void ccopy\+Array (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{src\+Size,  }\item[{char $\ast$}]{src,  }\item[{size\+\_\+t}]{dest\+Size,  }\item[{char $\ast$}]{dest }\end{DoxyParamCaption})}
+
+Copies the array src to the array dest, aborting the program if the sizes of the arrays don\textquotesingle{}t match. (char version) 
+\begin{DoxyParams}{Parameters}
+{\em src\+Size} & the size of the src array \\
+\hline
+{\em $\ast$src} & the src array \\
+\hline
+{\em dest\+Size} & the size of the dest array \\
+\hline
+{\em $\ast$dest} & the dest array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_affab8160ed4e387518d24825f8f43d8c}\label{array_8c_affab8160ed4e387518d24825f8f43d8c}} 
+\index{array.c@{array.c}!ceappend@{ceappend}}
+\index{ceappend@{ceappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ceappend()}{ceappend()}}
+{\footnotesize\ttfamily void ceappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{char $\ast$$\ast$}]{array,  }\item[{char}]{value }\end{DoxyParamCaption})}
+
+Appends a value at the end of the array, increasing its size by 1 (char version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a5f961e2df8680b31dfd5038a9aae87b7}\label{array_8c_a5f961e2df8680b31dfd5038a9aae87b7}} 
+\index{array.c@{array.c}!cisort@{cisort}}
+\index{cisort@{cisort}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{cisort()}{cisort()}}
+{\footnotesize\ttfamily void cisort (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{char $\ast$}]{array }\end{DoxyParamCaption})}
+
+Sorts the array in ascending order (char version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em $\ast$array} & the array to sort \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a8655f41d24a7fe24d2e8986b6e4136e6}\label{array_8c_a8655f41d24a7fe24d2e8986b6e4136e6}} 
+\index{array.c@{array.c}!clsearch@{clsearch}}
+\index{clsearch@{clsearch}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{clsearch()}{clsearch()}}
+{\footnotesize\ttfamily int64\+\_\+t clsearch (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{char $\ast$}]{array,  }\item[{char}]{value }\end{DoxyParamCaption})}
+
+Searches the array for the given value. (char version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em $\ast$array} & the array to search \\
+\hline
+{\em value} & the value to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the first index of value in the array or -\/1 if it doesn\textquotesingle{}t exit 
+\end{DoxyReturn}
+\mbox{\Hypertarget{array_8c_a6f81bcb8358b8fbf57f11b580c0189c6}\label{array_8c_a6f81bcb8358b8fbf57f11b580c0189c6}} 
+\index{array.c@{array.c}!cprintArray@{cprintArray}}
+\index{cprintArray@{cprintArray}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{cprintArray()}{cprintArray()}}
+{\footnotesize\ttfamily void cprint\+Array (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{char $\ast$}]{array,  }\item[{size\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+Prints the specified array, according to the print type. (char version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em array} & the array to print \\
+\hline
+{\em type} & the print type. 1 prints the array horizontally, 2 vertically and 3 as a word \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_aab8f876e7e9d21d2d7070ec320f171eb}\label{array_8c_aab8f876e7e9d21d2d7070ec320f171eb}} 
+\index{array.c@{array.c}!cremove@{cremove}}
+\index{cremove@{cremove}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{cremove()}{cremove()}}
+{\footnotesize\ttfamily char cremove (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{char $\ast$$\ast$}]{array,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+Removes the value at the specified index, decreasing its size by 1 (char version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em index} & the index of the array to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the removed element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{array_8c_ada6f36cd397b0f9f05ee7fd4a1dbe288}\label{array_8c_ada6f36cd397b0f9f05ee7fd4a1dbe288}} 
+\index{array.c@{array.c}!csappend@{csappend}}
+\index{csappend@{csappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{csappend()}{csappend()}}
+{\footnotesize\ttfamily void csappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{char $\ast$$\ast$}]{array,  }\item[{char}]{value }\end{DoxyParamCaption})}
+
+Appends a value at the start of the array, increasing its size by 1 (char version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a33bf1ca4b9590ea6e5ddd99d9bb04c41}\label{array_8c_a33bf1ca4b9590ea6e5ddd99d9bb04c41}} 
+\index{array.c@{array.c}!dappend@{dappend}}
+\index{dappend@{dappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{dappend()}{dappend()}}
+{\footnotesize\ttfamily void dappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{double $\ast$$\ast$}]{array,  }\item[{double}]{value,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+Appends a value at the specified index of the array, increasing its size by 1 (double version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+{\em index} & the index to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_ac5503c3dd05eafa4c8b167a63ae2ce94}\label{array_8c_ac5503c3dd05eafa4c8b167a63ae2ce94}} 
+\index{array.c@{array.c}!dcopyArray@{dcopyArray}}
+\index{dcopyArray@{dcopyArray}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{dcopyArray()}{dcopyArray()}}
+{\footnotesize\ttfamily void dcopy\+Array (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{src\+Size,  }\item[{double $\ast$}]{src,  }\item[{size\+\_\+t}]{dest\+Size,  }\item[{double $\ast$}]{dest }\end{DoxyParamCaption})}
+
+Copies the array src to the array dest, aborting the program if the sizes of the arrays don\textquotesingle{}t match. (double version) 
+\begin{DoxyParams}{Parameters}
+{\em src\+Size} & the size of the src array \\
+\hline
+{\em $\ast$src} & the src array \\
+\hline
+{\em dest\+Size} & the size of the dest array \\
+\hline
+{\em $\ast$dest} & the dest array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_abe1737dd70f8d4945a27c80cd46f83e6}\label{array_8c_abe1737dd70f8d4945a27c80cd46f83e6}} 
+\index{array.c@{array.c}!deappend@{deappend}}
+\index{deappend@{deappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{deappend()}{deappend()}}
+{\footnotesize\ttfamily void deappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{double $\ast$$\ast$}]{array,  }\item[{double}]{value }\end{DoxyParamCaption})}
+
+Appends a value at the end of the array, increasing its size by 1 (double version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a66dbbcbe6e39791ce6f0dccb319661e3}\label{array_8c_a66dbbcbe6e39791ce6f0dccb319661e3}} 
+\index{array.c@{array.c}!disort@{disort}}
+\index{disort@{disort}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{disort()}{disort()}}
+{\footnotesize\ttfamily void disort (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{double $\ast$}]{array }\end{DoxyParamCaption})}
+
+Sorts the array in ascending order (double version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em $\ast$array} & the array to sort \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_abeb83b667f4e9ad08cbce9fdfdf27ef9}\label{array_8c_abeb83b667f4e9ad08cbce9fdfdf27ef9}} 
+\index{array.c@{array.c}!dlsearch@{dlsearch}}
+\index{dlsearch@{dlsearch}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{dlsearch()}{dlsearch()}}
+{\footnotesize\ttfamily int64\+\_\+t dlsearch (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{double $\ast$}]{array,  }\item[{double}]{value }\end{DoxyParamCaption})}
+
+Searches the array for the given value. (double version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em $\ast$array} & the array to search \\
+\hline
+{\em value} & the value to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the first index of value in the array or -\/1 if it doesn\textquotesingle{}t exit 
+\end{DoxyReturn}
+\mbox{\Hypertarget{array_8c_a1ca3014ac468382f90fa452223c3fdfe}\label{array_8c_a1ca3014ac468382f90fa452223c3fdfe}} 
+\index{array.c@{array.c}!dprintArray@{dprintArray}}
+\index{dprintArray@{dprintArray}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{dprintArray()}{dprintArray()}}
+{\footnotesize\ttfamily void dprint\+Array (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{double $\ast$}]{array,  }\item[{size\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+Prints the specified array, according to the print type. (double version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em array} & the array to print \\
+\hline
+{\em type} & the print type. 1 prints the array horizontally and 2 vertically \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_ad4996d39bbbba504ccb0622b8704a798}\label{array_8c_ad4996d39bbbba504ccb0622b8704a798}} 
+\index{array.c@{array.c}!dremove@{dremove}}
+\index{dremove@{dremove}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{dremove()}{dremove()}}
+{\footnotesize\ttfamily double dremove (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{double $\ast$$\ast$}]{array,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+Removes the value at the specified index, decreasing its size by 1 (double version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em index} & the index of the array to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the removed element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{array_8c_a43344cf94563ddabd06f6412003719b5}\label{array_8c_a43344cf94563ddabd06f6412003719b5}} 
+\index{array.c@{array.c}!dsappend@{dsappend}}
+\index{dsappend@{dsappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{dsappend()}{dsappend()}}
+{\footnotesize\ttfamily void dsappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{double $\ast$$\ast$}]{array,  }\item[{double}]{value }\end{DoxyParamCaption})}
+
+Appends a value at the start of the array, increasing its size by 1 (double version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a41d8d480670295b3c438cac22a1ddb8b}\label{array_8c_a41d8d480670295b3c438cac22a1ddb8b}} 
+\index{array.c@{array.c}!fappend@{fappend}}
+\index{fappend@{fappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{fappend()}{fappend()}}
+{\footnotesize\ttfamily void fappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{float $\ast$$\ast$}]{array,  }\item[{float}]{value,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+Appends a value at the specified index of the array, increasing its size by 1 (float version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+{\em index} & the index to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a47dc5d5cfdb5978fc2e24109f51192ea}\label{array_8c_a47dc5d5cfdb5978fc2e24109f51192ea}} 
+\index{array.c@{array.c}!fcopyArray@{fcopyArray}}
+\index{fcopyArray@{fcopyArray}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{fcopyArray()}{fcopyArray()}}
+{\footnotesize\ttfamily void fcopy\+Array (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{src\+Size,  }\item[{float $\ast$}]{src,  }\item[{size\+\_\+t}]{dest\+Size,  }\item[{float $\ast$}]{dest }\end{DoxyParamCaption})}
+
+Copies the array src to the array dest, aborting the program if the sizes of the arrays don\textquotesingle{}t match. (float version) 
+\begin{DoxyParams}{Parameters}
+{\em src\+Size} & the size of the src array \\
+\hline
+{\em $\ast$src} & the src array \\
+\hline
+{\em dest\+Size} & the size of the dest array \\
+\hline
+{\em $\ast$dest} & the dest array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a0d0b6a29f64140bef9c35d640df73b5d}\label{array_8c_a0d0b6a29f64140bef9c35d640df73b5d}} 
+\index{array.c@{array.c}!feappend@{feappend}}
+\index{feappend@{feappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{feappend()}{feappend()}}
+{\footnotesize\ttfamily void feappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{float $\ast$$\ast$}]{array,  }\item[{float}]{value }\end{DoxyParamCaption})}
+
+Appends a value at the end of the array, increasing its size by 1 (float version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_abce843ee6490ffcf71e5926ef2f7e8f8}\label{array_8c_abce843ee6490ffcf71e5926ef2f7e8f8}} 
+\index{array.c@{array.c}!fisort@{fisort}}
+\index{fisort@{fisort}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{fisort()}{fisort()}}
+{\footnotesize\ttfamily void fisort (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{float $\ast$}]{array }\end{DoxyParamCaption})}
+
+Sorts the array in ascending order (float version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em $\ast$array} & the array to sort \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a9b58e8b2aa8706502bde822d0d766ef0}\label{array_8c_a9b58e8b2aa8706502bde822d0d766ef0}} 
+\index{array.c@{array.c}!flsearch@{flsearch}}
+\index{flsearch@{flsearch}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{flsearch()}{flsearch()}}
+{\footnotesize\ttfamily int64\+\_\+t flsearch (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{float $\ast$}]{array,  }\item[{float}]{value }\end{DoxyParamCaption})}
+
+Searches the array for the given value. (float version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em $\ast$array} & the array to search \\
+\hline
+{\em value} & the value to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the first index of value in the array or -\/1 if it doesn\textquotesingle{}t exit 
+\end{DoxyReturn}
+\mbox{\Hypertarget{array_8c_aa3e1c2d030973c91ba876a714d11a081}\label{array_8c_aa3e1c2d030973c91ba876a714d11a081}} 
+\index{array.c@{array.c}!fprintArray@{fprintArray}}
+\index{fprintArray@{fprintArray}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{fprintArray()}{fprintArray()}}
+{\footnotesize\ttfamily void fprint\+Array (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{float $\ast$}]{array,  }\item[{size\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+Prints the specified array, according to the print type. (float version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em array} & the array to print \\
+\hline
+{\em type} & the print type. 1 prints the array horizontally and 2 vertically \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_af2f0d626b11aa3d8e26086be1b6fcb23}\label{array_8c_af2f0d626b11aa3d8e26086be1b6fcb23}} 
+\index{array.c@{array.c}!fremove@{fremove}}
+\index{fremove@{fremove}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{fremove()}{fremove()}}
+{\footnotesize\ttfamily float fremove (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{float $\ast$$\ast$}]{array,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+Removes the value at the specified index, decreasing its size by 1 (float version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em index} & the index of the array to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the removed element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{array_8c_a0c41547db40ba1f775aebaaec0ef26a2}\label{array_8c_a0c41547db40ba1f775aebaaec0ef26a2}} 
+\index{array.c@{array.c}!fsappend@{fsappend}}
+\index{fsappend@{fsappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{fsappend()}{fsappend()}}
+{\footnotesize\ttfamily void fsappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{float $\ast$$\ast$}]{array,  }\item[{float}]{value }\end{DoxyParamCaption})}
+
+Appends a value at the start of the array, increasing its size by 1 (float version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_ad4c52b55cf1610873b7858223709ba28}\label{array_8c_ad4c52b55cf1610873b7858223709ba28}} 
+\index{array.c@{array.c}!i16append@{i16append}}
+\index{i16append@{i16append}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i16append()}{i16append()}}
+{\footnotesize\ttfamily void i16append (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{int16\+\_\+t $\ast$$\ast$}]{array,  }\item[{int16\+\_\+t}]{value,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+Appends a value at the specified index of the array, increasing its size by 1 (int16\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+{\em index} & the index to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a3805762ae0f5b92b457083206ce33435}\label{array_8c_a3805762ae0f5b92b457083206ce33435}} 
+\index{array.c@{array.c}!i16copyArray@{i16copyArray}}
+\index{i16copyArray@{i16copyArray}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i16copyArray()}{i16copyArray()}}
+{\footnotesize\ttfamily void i16copy\+Array (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{src\+Size,  }\item[{int16\+\_\+t $\ast$}]{src,  }\item[{size\+\_\+t}]{dest\+Size,  }\item[{int16\+\_\+t $\ast$}]{dest }\end{DoxyParamCaption})}
+
+Copies the array src to the array dest, aborting the program if the sizes of the arrays don\textquotesingle{}t match. (int16\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em src\+Size} & the size of the src array \\
+\hline
+{\em $\ast$src} & the src array \\
+\hline
+{\em dest\+Size} & the size of the dest array \\
+\hline
+{\em $\ast$dest} & the dest array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a0dc5d9a31b5364ee073275f9cc925c48}\label{array_8c_a0dc5d9a31b5364ee073275f9cc925c48}} 
+\index{array.c@{array.c}!i16eappend@{i16eappend}}
+\index{i16eappend@{i16eappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i16eappend()}{i16eappend()}}
+{\footnotesize\ttfamily void i16eappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{int16\+\_\+t $\ast$$\ast$}]{array,  }\item[{int16\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Appends a value at the end of the array, increasing its size by 1 (int16\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a1b63ce7260d59192891ad23c0508a8a0}\label{array_8c_a1b63ce7260d59192891ad23c0508a8a0}} 
+\index{array.c@{array.c}!i16isort@{i16isort}}
+\index{i16isort@{i16isort}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i16isort()}{i16isort()}}
+{\footnotesize\ttfamily void i16isort (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{int16\+\_\+t $\ast$}]{array }\end{DoxyParamCaption})}
+
+Sorts the array in ascending order (int16\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em $\ast$array} & the array to sort \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a7ddea2cffe7a3f75f58ee92d5dd2e1b4}\label{array_8c_a7ddea2cffe7a3f75f58ee92d5dd2e1b4}} 
+\index{array.c@{array.c}!i16lsearch@{i16lsearch}}
+\index{i16lsearch@{i16lsearch}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i16lsearch()}{i16lsearch()}}
+{\footnotesize\ttfamily int64\+\_\+t i16lsearch (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{int16\+\_\+t $\ast$}]{array,  }\item[{int16\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Searches the array for the given value. (int16\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em $\ast$array} & the array to search \\
+\hline
+{\em value} & the value to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the first index of value in the array or -\/1 if it doesn\textquotesingle{}t exit 
+\end{DoxyReturn}
+\mbox{\Hypertarget{array_8c_a8c63cbd243c26e078723068ff7a181c4}\label{array_8c_a8c63cbd243c26e078723068ff7a181c4}} 
+\index{array.c@{array.c}!i16printArray@{i16printArray}}
+\index{i16printArray@{i16printArray}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i16printArray()}{i16printArray()}}
+{\footnotesize\ttfamily void i16print\+Array (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{int16\+\_\+t $\ast$}]{array,  }\item[{size\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+Prints the specified array, according to the print type. (int16\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em array} & the array to print \\
+\hline
+{\em type} & the print type. 1 prints the array horizontally and 2 vertically \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a9c108e2c1cd012f370e1f7655ee932f3}\label{array_8c_a9c108e2c1cd012f370e1f7655ee932f3}} 
+\index{array.c@{array.c}!i16remove@{i16remove}}
+\index{i16remove@{i16remove}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i16remove()}{i16remove()}}
+{\footnotesize\ttfamily int16\+\_\+t i16remove (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{int16\+\_\+t $\ast$$\ast$}]{array,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+Removes the value at the specified index, decreasing its size by 1 (int16\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em index} & the index of the array to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the removed element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{array_8c_ae34ad48dcda33f46c0eea2680ee3953c}\label{array_8c_ae34ad48dcda33f46c0eea2680ee3953c}} 
+\index{array.c@{array.c}!i16sappend@{i16sappend}}
+\index{i16sappend@{i16sappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i16sappend()}{i16sappend()}}
+{\footnotesize\ttfamily void i16sappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{int16\+\_\+t $\ast$$\ast$}]{array,  }\item[{int16\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Appends a value at the start of the array, increasing its size by 1 (int16\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a2a6e5c37eec0e06226515851c64f2339}\label{array_8c_a2a6e5c37eec0e06226515851c64f2339}} 
+\index{array.c@{array.c}!i32append@{i32append}}
+\index{i32append@{i32append}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i32append()}{i32append()}}
+{\footnotesize\ttfamily void i32append (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{int32\+\_\+t $\ast$$\ast$}]{array,  }\item[{int32\+\_\+t}]{value,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+Appends a value at the specified index of the array, increasing its size by 1 (int32\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+{\em index} & the index to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_adf24baccabd7825a0537fd768c24a3f3}\label{array_8c_adf24baccabd7825a0537fd768c24a3f3}} 
+\index{array.c@{array.c}!i32copyArray@{i32copyArray}}
+\index{i32copyArray@{i32copyArray}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i32copyArray()}{i32copyArray()}}
+{\footnotesize\ttfamily void i32copy\+Array (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{src\+Size,  }\item[{int32\+\_\+t $\ast$}]{src,  }\item[{size\+\_\+t}]{dest\+Size,  }\item[{int32\+\_\+t $\ast$}]{dest }\end{DoxyParamCaption})}
+
+Copies the array src to the array dest, aborting the program if the sizes of the arrays don\textquotesingle{}t match. (int32\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em src\+Size} & the size of the src array \\
+\hline
+{\em $\ast$src} & the src array \\
+\hline
+{\em dest\+Size} & the size of the dest array \\
+\hline
+{\em $\ast$dest} & the dest array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a05678ee0a476a9249df743cbd3ddff6d}\label{array_8c_a05678ee0a476a9249df743cbd3ddff6d}} 
+\index{array.c@{array.c}!i32eappend@{i32eappend}}
+\index{i32eappend@{i32eappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i32eappend()}{i32eappend()}}
+{\footnotesize\ttfamily void i32eappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{int32\+\_\+t $\ast$$\ast$}]{array,  }\item[{int32\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Appends a value at the end of the array, increasing its size by 1 (int32\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_ae6c1d8cf68df1f6bb0a585404d080793}\label{array_8c_ae6c1d8cf68df1f6bb0a585404d080793}} 
+\index{array.c@{array.c}!i32isort@{i32isort}}
+\index{i32isort@{i32isort}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i32isort()}{i32isort()}}
+{\footnotesize\ttfamily void i32isort (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{int32\+\_\+t $\ast$}]{array }\end{DoxyParamCaption})}
+
+Sorts the array in ascending order (int32\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em $\ast$array} & the array to sort \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_ab85422ab1b2a1bba40fd7f9bf1d95825}\label{array_8c_ab85422ab1b2a1bba40fd7f9bf1d95825}} 
+\index{array.c@{array.c}!i32lsearch@{i32lsearch}}
+\index{i32lsearch@{i32lsearch}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i32lsearch()}{i32lsearch()}}
+{\footnotesize\ttfamily int64\+\_\+t i32lsearch (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{int32\+\_\+t $\ast$}]{array,  }\item[{int32\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Searches the array for the given value. (int32\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em $\ast$array} & the array to search \\
+\hline
+{\em value} & the value to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the first index of value in the array or -\/1 if it doesn\textquotesingle{}t exit 
+\end{DoxyReturn}
+\mbox{\Hypertarget{array_8c_a23b66ea8640bb8d9bbd12e60c65b0d0a}\label{array_8c_a23b66ea8640bb8d9bbd12e60c65b0d0a}} 
+\index{array.c@{array.c}!i32printArray@{i32printArray}}
+\index{i32printArray@{i32printArray}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i32printArray()}{i32printArray()}}
+{\footnotesize\ttfamily void i32print\+Array (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{int32\+\_\+t $\ast$}]{array,  }\item[{size\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+Prints the specified array, according to the print type. (int32\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em array} & the array to print \\
+\hline
+{\em type} & the print type. 1 prints the array horizontally and 2 vertically \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a1669b1f450027bcd204443472db7098a}\label{array_8c_a1669b1f450027bcd204443472db7098a}} 
+\index{array.c@{array.c}!i32remove@{i32remove}}
+\index{i32remove@{i32remove}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i32remove()}{i32remove()}}
+{\footnotesize\ttfamily int32\+\_\+t i32remove (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{int32\+\_\+t $\ast$$\ast$}]{array,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+Removes the value at the specified index, decreasing its size by 1 (int32\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em index} & the index of the array to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the removed element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{array_8c_aec694009ddaf98a10420d54d91881f38}\label{array_8c_aec694009ddaf98a10420d54d91881f38}} 
+\index{array.c@{array.c}!i32sappend@{i32sappend}}
+\index{i32sappend@{i32sappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i32sappend()}{i32sappend()}}
+{\footnotesize\ttfamily void i32sappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{int32\+\_\+t $\ast$$\ast$}]{array,  }\item[{int32\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Appends a value at the start of the array, increasing its size by 1 (int32\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a5910ac257d31da8aac2cd1b1fa86379f}\label{array_8c_a5910ac257d31da8aac2cd1b1fa86379f}} 
+\index{array.c@{array.c}!i64append@{i64append}}
+\index{i64append@{i64append}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i64append()}{i64append()}}
+{\footnotesize\ttfamily void i64append (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{int64\+\_\+t $\ast$$\ast$}]{array,  }\item[{int64\+\_\+t}]{value,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+Appends a value at the specified index of the array, increasing its size by 1 (int64\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+{\em index} & the index to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a8a181c96d58e125e97db1554bd2c431e}\label{array_8c_a8a181c96d58e125e97db1554bd2c431e}} 
+\index{array.c@{array.c}!i64copyArray@{i64copyArray}}
+\index{i64copyArray@{i64copyArray}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i64copyArray()}{i64copyArray()}}
+{\footnotesize\ttfamily void i64copy\+Array (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{src\+Size,  }\item[{int64\+\_\+t $\ast$}]{src,  }\item[{size\+\_\+t}]{dest\+Size,  }\item[{int64\+\_\+t $\ast$}]{dest }\end{DoxyParamCaption})}
+
+Copies the array src to the array dest, aborting the program if the sizes of the arrays don\textquotesingle{}t match. (int64\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em src\+Size} & the size of the src array \\
+\hline
+{\em $\ast$src} & the src array \\
+\hline
+{\em dest\+Size} & the size of the dest array \\
+\hline
+{\em $\ast$dest} & the dest array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a6a71d0cddc54f7f3d2caa1f261e09b8b}\label{array_8c_a6a71d0cddc54f7f3d2caa1f261e09b8b}} 
+\index{array.c@{array.c}!i64eappend@{i64eappend}}
+\index{i64eappend@{i64eappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i64eappend()}{i64eappend()}}
+{\footnotesize\ttfamily void i64eappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{int64\+\_\+t $\ast$$\ast$}]{array,  }\item[{int64\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Appends a value at the end of the array, increasing its size by 1 (int64\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a4bdd5f4d3e08a9cb9563c8a90f8729ac}\label{array_8c_a4bdd5f4d3e08a9cb9563c8a90f8729ac}} 
+\index{array.c@{array.c}!i64isort@{i64isort}}
+\index{i64isort@{i64isort}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i64isort()}{i64isort()}}
+{\footnotesize\ttfamily void i64isort (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{int64\+\_\+t $\ast$}]{array }\end{DoxyParamCaption})}
+
+Sorts the array in ascending order (int64\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em $\ast$array} & the array to sort \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_aab0d90468d16664ad5a9adadf0701280}\label{array_8c_aab0d90468d16664ad5a9adadf0701280}} 
+\index{array.c@{array.c}!i64lsearch@{i64lsearch}}
+\index{i64lsearch@{i64lsearch}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i64lsearch()}{i64lsearch()}}
+{\footnotesize\ttfamily int64\+\_\+t i64lsearch (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{int64\+\_\+t $\ast$}]{array,  }\item[{int64\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Searches the array for the given value. (int64\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em $\ast$array} & the array to search \\
+\hline
+{\em value} & the value to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the first index of value in the array or -\/1 if it doesn\textquotesingle{}t exit 
+\end{DoxyReturn}
+\mbox{\Hypertarget{array_8c_a0a4d935ed18d87a86135d2b10edfa990}\label{array_8c_a0a4d935ed18d87a86135d2b10edfa990}} 
+\index{array.c@{array.c}!i64printArray@{i64printArray}}
+\index{i64printArray@{i64printArray}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i64printArray()}{i64printArray()}}
+{\footnotesize\ttfamily void i64print\+Array (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{int64\+\_\+t $\ast$}]{array,  }\item[{size\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+Prints the specified array, according to the print type. (int64\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em array} & the array to print \\
+\hline
+{\em type} & the print type. 1 prints the array horizontally and 2 vertically \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a4120d7a3de00e47c5e392e7180716758}\label{array_8c_a4120d7a3de00e47c5e392e7180716758}} 
+\index{array.c@{array.c}!i64remove@{i64remove}}
+\index{i64remove@{i64remove}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i64remove()}{i64remove()}}
+{\footnotesize\ttfamily int64\+\_\+t i64remove (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{int64\+\_\+t $\ast$$\ast$}]{array,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+Removes the value at the specified index, decreasing its size by 1 (int64\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em index} & the index of the array to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the removed element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{array_8c_a70598572fb878252d5f7809be16d0d0d}\label{array_8c_a70598572fb878252d5f7809be16d0d0d}} 
+\index{array.c@{array.c}!i64sappend@{i64sappend}}
+\index{i64sappend@{i64sappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i64sappend()}{i64sappend()}}
+{\footnotesize\ttfamily void i64sappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{int64\+\_\+t $\ast$$\ast$}]{array,  }\item[{int64\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Appends a value at the start of the array, increasing its size by 1 (int64\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a9380bc1bbd4ca20bca34a4f68f7fac5d}\label{array_8c_a9380bc1bbd4ca20bca34a4f68f7fac5d}} 
+\index{array.c@{array.c}!i8append@{i8append}}
+\index{i8append@{i8append}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i8append()}{i8append()}}
+{\footnotesize\ttfamily void i8append (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{int8\+\_\+t $\ast$$\ast$}]{array,  }\item[{int8\+\_\+t}]{value,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+Appends a value at the specified index of the array, increasing its size by 1 (int8\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+{\em index} & the index to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_ad4acbb5b2f65ee549b39bc1688878d0c}\label{array_8c_ad4acbb5b2f65ee549b39bc1688878d0c}} 
+\index{array.c@{array.c}!i8copyArray@{i8copyArray}}
+\index{i8copyArray@{i8copyArray}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i8copyArray()}{i8copyArray()}}
+{\footnotesize\ttfamily void i8copy\+Array (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{src\+Size,  }\item[{int8\+\_\+t $\ast$}]{src,  }\item[{size\+\_\+t}]{dest\+Size,  }\item[{int8\+\_\+t $\ast$}]{dest }\end{DoxyParamCaption})}
+
+Copies the array src to the array dest, aborting the program if the sizes of the arrays don\textquotesingle{}t match. (int8\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em src\+Size} & the size of the src array \\
+\hline
+{\em $\ast$src} & the src array \\
+\hline
+{\em dest\+Size} & the size of the dest array \\
+\hline
+{\em $\ast$dest} & the dest array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a3a820f71ab21379d46b5ac003bb51ebc}\label{array_8c_a3a820f71ab21379d46b5ac003bb51ebc}} 
+\index{array.c@{array.c}!i8eappend@{i8eappend}}
+\index{i8eappend@{i8eappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i8eappend()}{i8eappend()}}
+{\footnotesize\ttfamily void i8eappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{int8\+\_\+t $\ast$$\ast$}]{array,  }\item[{int8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Appends a value at the end of the array, increasing its size by 1 (int8\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_aad88418673642c8ca178877175c95539}\label{array_8c_aad88418673642c8ca178877175c95539}} 
+\index{array.c@{array.c}!i8isort@{i8isort}}
+\index{i8isort@{i8isort}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i8isort()}{i8isort()}}
+{\footnotesize\ttfamily void i8isort (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{int8\+\_\+t $\ast$}]{array }\end{DoxyParamCaption})}
+
+Sorts the array in ascending order (int8\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em $\ast$array} & the array to sort \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_ab75bcbd5dfe99e018363f2f57787cafa}\label{array_8c_ab75bcbd5dfe99e018363f2f57787cafa}} 
+\index{array.c@{array.c}!i8lsearch@{i8lsearch}}
+\index{i8lsearch@{i8lsearch}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i8lsearch()}{i8lsearch()}}
+{\footnotesize\ttfamily int64\+\_\+t i8lsearch (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{int8\+\_\+t $\ast$}]{array,  }\item[{int8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Searches the array for the given value. (int8\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em $\ast$array} & the array to search \\
+\hline
+{\em value} & the value to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the first index of value in the array or -\/1 if it doesn\textquotesingle{}t exit 
+\end{DoxyReturn}
+\mbox{\Hypertarget{array_8c_a6673c9dc909a4f40de74bd4af1286d4a}\label{array_8c_a6673c9dc909a4f40de74bd4af1286d4a}} 
+\index{array.c@{array.c}!i8printArray@{i8printArray}}
+\index{i8printArray@{i8printArray}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i8printArray()}{i8printArray()}}
+{\footnotesize\ttfamily void i8print\+Array (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{int8\+\_\+t $\ast$}]{array,  }\item[{size\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+Prints the specified array, according to the print type. (int8\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em array} & the array to print \\
+\hline
+{\em type} & the print type. 1 prints the array horizontally and 2 vertically \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a6e13325054664e27e4127df10d34cb08}\label{array_8c_a6e13325054664e27e4127df10d34cb08}} 
+\index{array.c@{array.c}!i8remove@{i8remove}}
+\index{i8remove@{i8remove}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i8remove()}{i8remove()}}
+{\footnotesize\ttfamily int8\+\_\+t i8remove (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{int8\+\_\+t $\ast$$\ast$}]{array,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+Removes the value at the specified index, decreasing its size by 1 (int8\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em index} & the index of the array to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the removed element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{array_8c_a632ed95a2e1f14c3349649b7cf1a51a6}\label{array_8c_a632ed95a2e1f14c3349649b7cf1a51a6}} 
+\index{array.c@{array.c}!i8sappend@{i8sappend}}
+\index{i8sappend@{i8sappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{i8sappend()}{i8sappend()}}
+{\footnotesize\ttfamily void i8sappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{int8\+\_\+t $\ast$$\ast$}]{array,  }\item[{int8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Appends a value at the start of the array, increasing its size by 1 (int8\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a8cfe931e644c2fcc640b5417d9a3e634}\label{array_8c_a8cfe931e644c2fcc640b5417d9a3e634}} 
+\index{array.c@{array.c}!ldappend@{ldappend}}
+\index{ldappend@{ldappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ldappend()}{ldappend()}}
+{\footnotesize\ttfamily void ldappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{long double $\ast$$\ast$}]{array,  }\item[{long double}]{value,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+Appends a value at the specified index of the array, increasing its size by 1 (long double version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+{\em index} & the index to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_ade370ec52114f2004a1f584b2c26b90e}\label{array_8c_ade370ec52114f2004a1f584b2c26b90e}} 
+\index{array.c@{array.c}!ldcopyArray@{ldcopyArray}}
+\index{ldcopyArray@{ldcopyArray}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ldcopyArray()}{ldcopyArray()}}
+{\footnotesize\ttfamily void ldcopy\+Array (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{src\+Size,  }\item[{long double $\ast$}]{src,  }\item[{size\+\_\+t}]{dest\+Size,  }\item[{long double $\ast$}]{dest }\end{DoxyParamCaption})}
+
+Copies the array src to the array dest, aborting the program if the sizes of the arrays don\textquotesingle{}t match. (long double version) 
+\begin{DoxyParams}{Parameters}
+{\em src\+Size} & the size of the src array \\
+\hline
+{\em $\ast$src} & the src array \\
+\hline
+{\em dest\+Size} & the size of the dest array \\
+\hline
+{\em $\ast$dest} & the dest array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_af5efc08e5ab10953bb46cd6ee7131b23}\label{array_8c_af5efc08e5ab10953bb46cd6ee7131b23}} 
+\index{array.c@{array.c}!ldeappend@{ldeappend}}
+\index{ldeappend@{ldeappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ldeappend()}{ldeappend()}}
+{\footnotesize\ttfamily void ldeappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{long double $\ast$$\ast$}]{array,  }\item[{long double}]{value }\end{DoxyParamCaption})}
+
+Appends a value at the end of the array, increasing its size by 1 (long double version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a82ddd2a5494ca0861db6b7eb6f9d3f2b}\label{array_8c_a82ddd2a5494ca0861db6b7eb6f9d3f2b}} 
+\index{array.c@{array.c}!ldisort@{ldisort}}
+\index{ldisort@{ldisort}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ldisort()}{ldisort()}}
+{\footnotesize\ttfamily void ldisort (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{long double $\ast$}]{array }\end{DoxyParamCaption})}
+
+Sorts the array in ascending order (long double version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em $\ast$array} & the array to sort \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a7fa8f67dba0b3231654e59eacf1c3966}\label{array_8c_a7fa8f67dba0b3231654e59eacf1c3966}} 
+\index{array.c@{array.c}!ldlsearch@{ldlsearch}}
+\index{ldlsearch@{ldlsearch}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ldlsearch()}{ldlsearch()}}
+{\footnotesize\ttfamily int64\+\_\+t ldlsearch (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{long double $\ast$}]{array,  }\item[{long double}]{value }\end{DoxyParamCaption})}
+
+Searches the array for the given value. (long double version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em $\ast$array} & the array to search \\
+\hline
+{\em value} & the value to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the first index of value in the array or -\/1 if it doesn\textquotesingle{}t exit 
+\end{DoxyReturn}
+\mbox{\Hypertarget{array_8c_a50c049363b9c0a4eb0b7ea6453c853da}\label{array_8c_a50c049363b9c0a4eb0b7ea6453c853da}} 
+\index{array.c@{array.c}!ldprintArray@{ldprintArray}}
+\index{ldprintArray@{ldprintArray}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ldprintArray()}{ldprintArray()}}
+{\footnotesize\ttfamily void ldprint\+Array (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{long double $\ast$}]{array,  }\item[{size\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+Prints the specified array, according to the print type. (long double version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em array} & the array to print \\
+\hline
+{\em type} & the print type. 1 prints the array horizontally and 2 vertically \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a222ad738092d7f3b179338b125bcb81b}\label{array_8c_a222ad738092d7f3b179338b125bcb81b}} 
+\index{array.c@{array.c}!ldremove@{ldremove}}
+\index{ldremove@{ldremove}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ldremove()}{ldremove()}}
+{\footnotesize\ttfamily long double ldremove (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{long double $\ast$$\ast$}]{array,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+Removes the value at the specified index, decreasing its size by 1 (long double version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em index} & the index of the array to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the removed element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{array_8c_a4a02b8a866db9657610356bae304749e}\label{array_8c_a4a02b8a866db9657610356bae304749e}} 
+\index{array.c@{array.c}!ldsappend@{ldsappend}}
+\index{ldsappend@{ldsappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ldsappend()}{ldsappend()}}
+{\footnotesize\ttfamily void ldsappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{long double $\ast$$\ast$}]{array,  }\item[{long double}]{value }\end{DoxyParamCaption})}
+
+Appends a value at the start of the array, increasing its size by 1 (long double version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a509f19b4336ee863b88ace6244e2b09f}\label{array_8c_a509f19b4336ee863b88ace6244e2b09f}} 
+\index{array.c@{array.c}!ui16append@{ui16append}}
+\index{ui16append@{ui16append}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui16append()}{ui16append()}}
+{\footnotesize\ttfamily void ui16append (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{uint16\+\_\+t $\ast$$\ast$}]{array,  }\item[{uint16\+\_\+t}]{value,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+Appends a value at the specified index of the array, increasing its size by 1 (uint16\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+{\em index} & the index to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_adb6708a738752ba0fac2c1492866d7c0}\label{array_8c_adb6708a738752ba0fac2c1492866d7c0}} 
+\index{array.c@{array.c}!ui16copyArray@{ui16copyArray}}
+\index{ui16copyArray@{ui16copyArray}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui16copyArray()}{ui16copyArray()}}
+{\footnotesize\ttfamily void ui16copy\+Array (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{src\+Size,  }\item[{uint16\+\_\+t $\ast$}]{src,  }\item[{size\+\_\+t}]{dest\+Size,  }\item[{uint16\+\_\+t $\ast$}]{dest }\end{DoxyParamCaption})}
+
+Copies the array src to the array dest, aborting the program if the sizes of the arrays don\textquotesingle{}t match. (uint16\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em src\+Size} & the size of the src array \\
+\hline
+{\em $\ast$src} & the src array \\
+\hline
+{\em dest\+Size} & the size of the dest array \\
+\hline
+{\em $\ast$dest} & the dest array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_ab87b5f6ac78dfbe6c9adfb3a55687538}\label{array_8c_ab87b5f6ac78dfbe6c9adfb3a55687538}} 
+\index{array.c@{array.c}!ui16eappend@{ui16eappend}}
+\index{ui16eappend@{ui16eappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui16eappend()}{ui16eappend()}}
+{\footnotesize\ttfamily void ui16eappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{uint16\+\_\+t $\ast$$\ast$}]{array,  }\item[{uint16\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Appends a value at the end of the array, increasing its size by 1 (uint16\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a062be200d22719aed1b6f14c0ad91947}\label{array_8c_a062be200d22719aed1b6f14c0ad91947}} 
+\index{array.c@{array.c}!ui16isort@{ui16isort}}
+\index{ui16isort@{ui16isort}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui16isort()}{ui16isort()}}
+{\footnotesize\ttfamily void ui16isort (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{uint16\+\_\+t $\ast$}]{array }\end{DoxyParamCaption})}
+
+Sorts the array in ascending order (uint16\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em $\ast$array} & the array to sort \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a3fc714ca54fdcf6902d608df8912593e}\label{array_8c_a3fc714ca54fdcf6902d608df8912593e}} 
+\index{array.c@{array.c}!ui16lsearch@{ui16lsearch}}
+\index{ui16lsearch@{ui16lsearch}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui16lsearch()}{ui16lsearch()}}
+{\footnotesize\ttfamily int64\+\_\+t ui16lsearch (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{uint16\+\_\+t $\ast$}]{array,  }\item[{uint16\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Searches the array for the given value. (uint16\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em $\ast$array} & the array to search \\
+\hline
+{\em value} & the value to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the first index of value in the array or -\/1 if it doesn\textquotesingle{}t exit 
+\end{DoxyReturn}
+\mbox{\Hypertarget{array_8c_aba6bf8d875b7ec466bb7866e3851dbff}\label{array_8c_aba6bf8d875b7ec466bb7866e3851dbff}} 
+\index{array.c@{array.c}!ui16printArray@{ui16printArray}}
+\index{ui16printArray@{ui16printArray}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui16printArray()}{ui16printArray()}}
+{\footnotesize\ttfamily void ui16print\+Array (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{uint16\+\_\+t $\ast$}]{array,  }\item[{size\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+Prints the specified array, according to the print type. (uint16\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em array} & the array to print \\
+\hline
+{\em type} & the print type. 1 prints the array horizontally and 2 vertically \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_ad2ab6e0725a91ffca57cd83c1ab3ca16}\label{array_8c_ad2ab6e0725a91ffca57cd83c1ab3ca16}} 
+\index{array.c@{array.c}!ui16remove@{ui16remove}}
+\index{ui16remove@{ui16remove}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui16remove()}{ui16remove()}}
+{\footnotesize\ttfamily uint16\+\_\+t ui16remove (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{uint16\+\_\+t $\ast$$\ast$}]{array,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+Removes the value at the specified index, decreasing its size by 1 (uint16\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em index} & the index of the array to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the removed element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{array_8c_a901a9e05605fc9f4af25b2f53b5643f1}\label{array_8c_a901a9e05605fc9f4af25b2f53b5643f1}} 
+\index{array.c@{array.c}!ui16sappend@{ui16sappend}}
+\index{ui16sappend@{ui16sappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui16sappend()}{ui16sappend()}}
+{\footnotesize\ttfamily void ui16sappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{uint16\+\_\+t $\ast$$\ast$}]{array,  }\item[{uint16\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Appends a value at the start of the array, increasing its size by 1 (uint16\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a2bdbc31f642d2a5bafff0403688ba9a1}\label{array_8c_a2bdbc31f642d2a5bafff0403688ba9a1}} 
+\index{array.c@{array.c}!ui32append@{ui32append}}
+\index{ui32append@{ui32append}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui32append()}{ui32append()}}
+{\footnotesize\ttfamily void ui32append (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{uint32\+\_\+t $\ast$$\ast$}]{array,  }\item[{uint32\+\_\+t}]{value,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+Appends a value at the specified index of the array, increasing its size by 1 (uint32\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+{\em index} & the index to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_ae6c544263c78d1b4898f4bdad15132d8}\label{array_8c_ae6c544263c78d1b4898f4bdad15132d8}} 
+\index{array.c@{array.c}!ui32copyArray@{ui32copyArray}}
+\index{ui32copyArray@{ui32copyArray}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui32copyArray()}{ui32copyArray()}}
+{\footnotesize\ttfamily void ui32copy\+Array (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{src\+Size,  }\item[{uint32\+\_\+t $\ast$}]{src,  }\item[{size\+\_\+t}]{dest\+Size,  }\item[{uint32\+\_\+t $\ast$}]{dest }\end{DoxyParamCaption})}
+
+Copies the array src to the array dest, aborting the program if the sizes of the arrays don\textquotesingle{}t match. (uint32\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em src\+Size} & the size of the src array \\
+\hline
+{\em $\ast$src} & the src array \\
+\hline
+{\em dest\+Size} & the size of the dest array \\
+\hline
+{\em $\ast$dest} & the dest array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a2351c151d658cfee5e0bd96f44a6cd07}\label{array_8c_a2351c151d658cfee5e0bd96f44a6cd07}} 
+\index{array.c@{array.c}!ui32eappend@{ui32eappend}}
+\index{ui32eappend@{ui32eappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui32eappend()}{ui32eappend()}}
+{\footnotesize\ttfamily void ui32eappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{uint32\+\_\+t $\ast$$\ast$}]{array,  }\item[{uint32\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Appends a value at the end of the array, increasing its size by 1 (uint32\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a5ba72d37a8313d037c3891058abb1c82}\label{array_8c_a5ba72d37a8313d037c3891058abb1c82}} 
+\index{array.c@{array.c}!ui32isort@{ui32isort}}
+\index{ui32isort@{ui32isort}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui32isort()}{ui32isort()}}
+{\footnotesize\ttfamily void ui32isort (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{uint32\+\_\+t $\ast$}]{array }\end{DoxyParamCaption})}
+
+Sorts the array in ascending order (uint32\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em $\ast$array} & the array to sort \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a34b215a15845663f95a078d6d21b5c41}\label{array_8c_a34b215a15845663f95a078d6d21b5c41}} 
+\index{array.c@{array.c}!ui32lsearch@{ui32lsearch}}
+\index{ui32lsearch@{ui32lsearch}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui32lsearch()}{ui32lsearch()}}
+{\footnotesize\ttfamily int64\+\_\+t ui32lsearch (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{uint32\+\_\+t $\ast$}]{array,  }\item[{uint32\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Searches the array for the given value. (uint32\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em $\ast$array} & the array to search \\
+\hline
+{\em value} & the value to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the first index of value in the array or -\/1 if it doesn\textquotesingle{}t exit 
+\end{DoxyReturn}
+\mbox{\Hypertarget{array_8c_af1169186d4e783b4cbe20e579a2ac37a}\label{array_8c_af1169186d4e783b4cbe20e579a2ac37a}} 
+\index{array.c@{array.c}!ui32printArray@{ui32printArray}}
+\index{ui32printArray@{ui32printArray}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui32printArray()}{ui32printArray()}}
+{\footnotesize\ttfamily void ui32print\+Array (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{uint32\+\_\+t $\ast$}]{array,  }\item[{size\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+Prints the specified array, according to the print type. (uint32\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em array} & the array to print \\
+\hline
+{\em type} & the print type. 1 prints the array horizontally and 2 vertically \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a5bfee8a24101f9f4f3b08f94cadbfaa7}\label{array_8c_a5bfee8a24101f9f4f3b08f94cadbfaa7}} 
+\index{array.c@{array.c}!ui32remove@{ui32remove}}
+\index{ui32remove@{ui32remove}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui32remove()}{ui32remove()}}
+{\footnotesize\ttfamily uint32\+\_\+t ui32remove (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{uint32\+\_\+t $\ast$$\ast$}]{array,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+Removes the value at the specified index, decreasing its size by 1 (uint32\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em index} & the index of the array to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the removed element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{array_8c_a4438f08e119a59803296467f15814aea}\label{array_8c_a4438f08e119a59803296467f15814aea}} 
+\index{array.c@{array.c}!ui32sappend@{ui32sappend}}
+\index{ui32sappend@{ui32sappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui32sappend()}{ui32sappend()}}
+{\footnotesize\ttfamily void ui32sappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{uint32\+\_\+t $\ast$$\ast$}]{array,  }\item[{uint32\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Appends a value at the start of the array, increasing its size by 1 (uint32\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a4387e5da280d0bc563d037933d5f0f64}\label{array_8c_a4387e5da280d0bc563d037933d5f0f64}} 
+\index{array.c@{array.c}!ui64append@{ui64append}}
+\index{ui64append@{ui64append}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui64append()}{ui64append()}}
+{\footnotesize\ttfamily void ui64append (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{uint64\+\_\+t $\ast$$\ast$}]{array,  }\item[{uint64\+\_\+t}]{value,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+Appends a value at the specified index of the array, increasing its size by 1 (uint64\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+{\em index} & the index to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a9e1087593c45032d72bc07f66378fc08}\label{array_8c_a9e1087593c45032d72bc07f66378fc08}} 
+\index{array.c@{array.c}!ui64copyArray@{ui64copyArray}}
+\index{ui64copyArray@{ui64copyArray}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui64copyArray()}{ui64copyArray()}}
+{\footnotesize\ttfamily void ui64copy\+Array (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{src\+Size,  }\item[{uint64\+\_\+t $\ast$}]{src,  }\item[{size\+\_\+t}]{dest\+Size,  }\item[{uint64\+\_\+t $\ast$}]{dest }\end{DoxyParamCaption})}
+
+Copies the array src to the array dest, aborting the program if the sizes of the arrays don\textquotesingle{}t match. (uint64\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em src\+Size} & the size of the src array \\
+\hline
+{\em $\ast$src} & the src array \\
+\hline
+{\em dest\+Size} & the size of the dest array \\
+\hline
+{\em $\ast$dest} & the dest array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a41acd69df079d581407653ebddb1e693}\label{array_8c_a41acd69df079d581407653ebddb1e693}} 
+\index{array.c@{array.c}!ui64eappend@{ui64eappend}}
+\index{ui64eappend@{ui64eappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui64eappend()}{ui64eappend()}}
+{\footnotesize\ttfamily void ui64eappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{uint64\+\_\+t $\ast$$\ast$}]{array,  }\item[{uint64\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Appends a value at the end of the array, increasing its size by 1 (uint64\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a326cb6bd758f7e27cf69ef6a5d154802}\label{array_8c_a326cb6bd758f7e27cf69ef6a5d154802}} 
+\index{array.c@{array.c}!ui64isort@{ui64isort}}
+\index{ui64isort@{ui64isort}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui64isort()}{ui64isort()}}
+{\footnotesize\ttfamily void ui64isort (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{uint64\+\_\+t $\ast$}]{array }\end{DoxyParamCaption})}
+
+Sorts the array in ascending order (uint64\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em $\ast$array} & the array to sort \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a8618dc8565d9201c9a0eae64c33a815e}\label{array_8c_a8618dc8565d9201c9a0eae64c33a815e}} 
+\index{array.c@{array.c}!ui64lsearch@{ui64lsearch}}
+\index{ui64lsearch@{ui64lsearch}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui64lsearch()}{ui64lsearch()}}
+{\footnotesize\ttfamily int64\+\_\+t ui64lsearch (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{uint64\+\_\+t $\ast$}]{array,  }\item[{uint64\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Searches the array for the given value. (uint64\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em $\ast$array} & the array to search \\
+\hline
+{\em value} & the value to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the first index of value in the array or -\/1 if it doesn\textquotesingle{}t exit 
+\end{DoxyReturn}
+\mbox{\Hypertarget{array_8c_a12e72a9cec2cda0630635bcc24fc7ec9}\label{array_8c_a12e72a9cec2cda0630635bcc24fc7ec9}} 
+\index{array.c@{array.c}!ui64printArray@{ui64printArray}}
+\index{ui64printArray@{ui64printArray}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui64printArray()}{ui64printArray()}}
+{\footnotesize\ttfamily void ui64print\+Array (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{uint64\+\_\+t $\ast$}]{array,  }\item[{size\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+Prints the specified array, according to the print type. (uint64\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em array} & the array to print \\
+\hline
+{\em type} & the print type. 1 prints the array horizontally and 2 vertically \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_acf412ed72b5f70dc81fd29037d382920}\label{array_8c_acf412ed72b5f70dc81fd29037d382920}} 
+\index{array.c@{array.c}!ui64remove@{ui64remove}}
+\index{ui64remove@{ui64remove}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui64remove()}{ui64remove()}}
+{\footnotesize\ttfamily uint64\+\_\+t ui64remove (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{uint64\+\_\+t $\ast$$\ast$}]{array,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+Removes the value at the specified index, decreasing its size by 1 (uint64\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em index} & the index of the array to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the removed element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{array_8c_a6d98d947e48bd09d04078ca390a34813}\label{array_8c_a6d98d947e48bd09d04078ca390a34813}} 
+\index{array.c@{array.c}!ui64sappend@{ui64sappend}}
+\index{ui64sappend@{ui64sappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui64sappend()}{ui64sappend()}}
+{\footnotesize\ttfamily void ui64sappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{uint64\+\_\+t $\ast$$\ast$}]{array,  }\item[{uint64\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Appends a value at the start of the array, increasing its size by 1 (uint64\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_ac347bf789828445a1009549abe62c34a}\label{array_8c_ac347bf789828445a1009549abe62c34a}} 
+\index{array.c@{array.c}!ui8append@{ui8append}}
+\index{ui8append@{ui8append}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui8append()}{ui8append()}}
+{\footnotesize\ttfamily void ui8append (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{uint8\+\_\+t $\ast$$\ast$}]{array,  }\item[{uint8\+\_\+t}]{value,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+Appends a value at the specified index of the array, increasing its size by 1 (uint8\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+{\em index} & the index to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a553b1c1dc31fd821ba09c52850a102d1}\label{array_8c_a553b1c1dc31fd821ba09c52850a102d1}} 
+\index{array.c@{array.c}!ui8copyArray@{ui8copyArray}}
+\index{ui8copyArray@{ui8copyArray}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui8copyArray()}{ui8copyArray()}}
+{\footnotesize\ttfamily void ui8copy\+Array (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{src\+Size,  }\item[{uint8\+\_\+t $\ast$}]{src,  }\item[{size\+\_\+t}]{dest\+Size,  }\item[{uint8\+\_\+t $\ast$}]{dest }\end{DoxyParamCaption})}
+
+Copies the array src to the array dest, aborting the program if the sizes of the arrays don\textquotesingle{}t match. (uint8\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em src\+Size} & the size of the src array \\
+\hline
+{\em $\ast$src} & the src array \\
+\hline
+{\em dest\+Size} & the size of the dest array \\
+\hline
+{\em $\ast$dest} & the dest array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a0c857ecdded2efba1eef2f2cc1f6495b}\label{array_8c_a0c857ecdded2efba1eef2f2cc1f6495b}} 
+\index{array.c@{array.c}!ui8eappend@{ui8eappend}}
+\index{ui8eappend@{ui8eappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui8eappend()}{ui8eappend()}}
+{\footnotesize\ttfamily void ui8eappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{uint8\+\_\+t $\ast$$\ast$}]{array,  }\item[{uint8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Appends a value at the end of the array, increasing its size by 1 (uint8\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a9f4024a8a39c28fd8f7e7008855e5c02}\label{array_8c_a9f4024a8a39c28fd8f7e7008855e5c02}} 
+\index{array.c@{array.c}!ui8isort@{ui8isort}}
+\index{ui8isort@{ui8isort}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui8isort()}{ui8isort()}}
+{\footnotesize\ttfamily void ui8isort (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{uint8\+\_\+t $\ast$}]{array }\end{DoxyParamCaption})}
+
+Sorts the array in ascending order (uint8\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em $\ast$array} & the array to sort \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_a415804d90fd25c424d717ca9f9141911}\label{array_8c_a415804d90fd25c424d717ca9f9141911}} 
+\index{array.c@{array.c}!ui8lsearch@{ui8lsearch}}
+\index{ui8lsearch@{ui8lsearch}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui8lsearch()}{ui8lsearch()}}
+{\footnotesize\ttfamily int64\+\_\+t ui8lsearch (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{uint8\+\_\+t $\ast$}]{array,  }\item[{uint8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Searches the array for the given value. (uint8\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em $\ast$array} & the array to search \\
+\hline
+{\em value} & the value to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the first index of value in the array or -\/1 if it doesn\textquotesingle{}t exit 
+\end{DoxyReturn}
+\mbox{\Hypertarget{array_8c_af2854ab7b7b9798633fac43f704e9755}\label{array_8c_af2854ab7b7b9798633fac43f704e9755}} 
+\index{array.c@{array.c}!ui8printArray@{ui8printArray}}
+\index{ui8printArray@{ui8printArray}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui8printArray()}{ui8printArray()}}
+{\footnotesize\ttfamily void ui8print\+Array (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{uint8\+\_\+t $\ast$}]{array,  }\item[{size\+\_\+t}]{type }\end{DoxyParamCaption})}
+
+Prints the specified array, according to the print type. (uint8\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the array \\
+\hline
+{\em array} & the array to print \\
+\hline
+{\em type} & the print type. 1 prints the array horizontally and 2 vertically \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{array_8c_ad27d063be958cfdd5f0e312b94593ac3}\label{array_8c_ad27d063be958cfdd5f0e312b94593ac3}} 
+\index{array.c@{array.c}!ui8remove@{ui8remove}}
+\index{ui8remove@{ui8remove}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui8remove()}{ui8remove()}}
+{\footnotesize\ttfamily uint8\+\_\+t ui8remove (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{uint8\+\_\+t $\ast$$\ast$}]{array,  }\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+Removes the value at the specified index, decreasing its size by 1 (uint8\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em index} & the index of the array to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the removed element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{array_8c_a9e6a023e744c5c03b565f3fe9d2c9981}\label{array_8c_a9e6a023e744c5c03b565f3fe9d2c9981}} 
+\index{array.c@{array.c}!ui8sappend@{ui8sappend}}
+\index{ui8sappend@{ui8sappend}!array.c@{array.c}}
+\doxysubsubsection{\texorpdfstring{ui8sappend()}{ui8sappend()}}
+{\footnotesize\ttfamily void ui8sappend (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{uint8\+\_\+t $\ast$$\ast$}]{array,  }\item[{uint8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Appends a value at the start of the array, increasing its size by 1 (uint8\+\_\+t version) 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$size} & the size of the array \\
+\hline
+{\em $\ast$$\ast$array} & the array to append the value \\
+\hline
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
